@@ -4,6 +4,7 @@ body{
 	background-repeat: no-repeat;
 	background-color: #00205b; 
 }
+
 h1 {
   color: #CA7218;
   text-align: center;
@@ -19,39 +20,70 @@ h1 {
 /* Puzzle */
 #contenedorPiezas{
 	position:absolute; 
-	width: 400px;
+	width: 340px;
 	height: 320px;
-	left: 40px;
-	top: 174px;
+	right: 70%;
+	top: 30%;
 }
 
 #contenedorPiezas2{
 	position:absolute; 
-	width: 1000px;
+	width: 960px;
 	height: 180px;
-	left: 280px;
-	top: 510px;
+	right: 2%;
+	padding: 10px;
+	top: 83%;
 }
 
-#contenedorPiezas3{
+#contenedorPiezas3{;
 	position:absolute; 
-	width: 360px;
+	width: 320px;
 	height: 300px;
-	left: 918px;
-	top: 120px;
+	left: 68%;
+	top: 22%;
 }
 
 #puzzle {
 	position:absolute; 
+	margin: auto;
 	z-index:3;
-	left:390px; 
-	top:130px; 
 	opacity:0.9;
 	width: 488px;
 	height: 370px;
+	top: 24%;
 	background-image: url("images/backpuzzle.png");
 	background-width: 436px;
 	background-repeat: no-repeat;
+}
+
+#logo1 img {
+	position:absolute; 
+	float: left;
+	margin-left: 90px;
+	margin-top: 30px;
+	width: 450px;
+}
+
+
+#logo2 img {
+	position:absolute; 
+	float: left;
+	margin-left: 70%;
+	margin-top: 40px;
+	width: 300px;
+}
+
+#moon {
+	position:absolute; 
+	left: 0px;
+	bottom: 280px;
+}
+
+
+#moon img {
+	position:absolute; 
+	float: bottom;
+	width: 500px;
 }
 
 .contenedorPieza {
