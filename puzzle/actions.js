@@ -64,7 +64,7 @@ function comprobarPuzzle(){
 	{
 		setTimeout(function() {
 			 alert('Felicidades, has logrado completar el diagrama de la Politica de Gobierno Digital');
-		}, 400);
+		}, 800);
 					
 	}
 }
