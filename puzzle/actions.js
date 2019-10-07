@@ -62,6 +62,9 @@ function comprobarPuzzle(){
 		(document.getElementById('pieza16').parentNode.id=='dieciseis')
 		)
 	{
-		alert('Felicidades, has logrado completar el diagrama de la Politica de Gobierno Digital');
+		setTimeout(function() {
+			 alert('Felicidades, has logrado completar el diagrama de la Politica de Gobierno Digital');
+		}, 600);
+					
 	}
 }
