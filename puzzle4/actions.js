@@ -1,6 +1,22 @@
 /**
 * Función que se ejecuta al arrastrar el elemento. 
 **/
+
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+  modal.style.display = "none";
+  location.reload();
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    location.reload();
+  }
+}
+
 function start(e) {
 	e.dataTransfer.effecAllowed = 'move'; // Define el efecto como mover (Es el por defecto)
 	e.dataTransfer.setData("Text", e.target.id); // Coje el elemento que se va a mover
@@ -63,8 +79,8 @@ function comprobarPuzzle(){
 		)
 	{
 		setTimeout(function() {
-			 alert('Felicidades, has logrado completar el diagrama de la Politica de Gobierno Digital');
-		}, 800);
+			modal.style.display = "block";
+		}, 300);
 					
 	}
 }
