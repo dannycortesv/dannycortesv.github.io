@@ -93,6 +93,28 @@ h1 {
     bottom: 0px 
 }
 
+#whole img {
+	position:absolute; 
+	top: 15%;
+	left: 30%;
+	width: 40%;
+}
+
+#start  img {
+	width: 100%;
+}
+
+button {
+  z-index:30;
+  position:absolute; 
+  bottom: 10%;
+  left: 40%;
+  width: 20%;
+  border: 0px solid #AD235E;
+  background: transparent;
+  cursor:pointer;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

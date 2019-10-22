@@ -7,13 +7,13 @@ var span = document.getElementsByClassName("close")[0];
 
 span.onclick = function() {
   modal.style.display = "none";
-  location.reload();
+  window.location.assign("index.html");
 }
 
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-    location.reload();
+    window.location.assign("index.html");
   }
 }
 
