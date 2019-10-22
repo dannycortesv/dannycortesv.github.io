@@ -74,7 +74,6 @@ function drop(e){
 }
 
 function comprobarPuzzle(){
-	modal.style.display = "block";
 	if( (document.getElementById('pieza1').parentNode.id=='uno') &&
 		(document.getElementById('pieza2').parentNode.id=='dos') &&
 		(document.getElementById('pieza3').parentNode.id=='tres') &&
