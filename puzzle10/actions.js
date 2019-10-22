@@ -3,9 +3,23 @@
 **/
 
 var modal = document.getElementById("myModal");
+var modalbox = document.getElementById("modalbox");
+
+/*
+
+
+		    <span class="close">&times;</span>
+		    
 var span = document.getElementsByClassName("close")[0];
 
+
 span.onclick = function() {
+  modal.style.display = "none";
+  window.location.assign("index.html");
+}
+*/
+
+modalbox.onclick = function() {
   modal.style.display = "none";
   window.location.assign("index.html");
 }
@@ -60,6 +74,7 @@ function drop(e){
 }
 
 function comprobarPuzzle(){
+	modal.style.display = "block";
 	if( (document.getElementById('pieza1').parentNode.id=='uno') &&
 		(document.getElementById('pieza2').parentNode.id=='dos') &&
 		(document.getElementById('pieza3').parentNode.id=='tres') &&

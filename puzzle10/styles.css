@@ -136,9 +136,19 @@ button {
   width: 450px; /* Could be more or less, depending on screen size */
 }
 
-
 #myModal img {
 	width: 450px;
+}
+
+#modalbox {
+  z-index:30;
+  position:absolute; 
+  top: 15%;
+  left: 30%;
+  width: 40%;
+  border: 0px solid #AD235E;
+  background: transparent;
+  cursor:pointer;
 }
 
 /* The Close Button */
@@ -154,4 +164,8 @@ button {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+button:focus {
+    outline: 0 !important;
 }
