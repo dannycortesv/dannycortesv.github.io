@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Diagrama de la Politica de Gobierno Digital</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+</head>
+<body>
+	 <script>
+ $(function() {
+
+  var currentId='';
+  var dragables=['#pieza1','#pieza2','#pieza3','#pieza4','#pieza5','#pieza6','#pieza7','#pieza8','#pieza9','#pieza10','#pieza11','#pieza12','#pieza13','#pieza14','#pieza15','#pieza16'];
+
+  var dropables=['#uno','#dos','#tres','#cuatro','#cinco','#seis','#siete','#ocho','#nueve','#diez','#once','#doce','#trece','#catorce','#quince','#dieciseis', '#contenedorPiezas', '#contenedorPiezas2', '#contenedorPiezas3'];
+
+
+  dragables.forEach(function(element) {
+			 $(element).draggable({
+	  start: function( event, ui ) {
+	  currentId=event.target.id;
+	  console.log('Current ID: '+currentId);
+	  },
+	  });
+	  $(element).draggable({
+			 revert : function(event, ui) {
+			  $(this).data("uiDraggable").originalPosition = { top : 0,left : 0 }; return true;
+			 }
+			 });
+		 });
+
+
+  dropables.forEach(function(element) {
+  $( element ).droppable({
+		  drop: function( event, ui ) {
+		  event.preventDefault(); 
+			  $( "#"+currentId ).draggable({revertDuration: 0});
+		  console.log('moviendo a '+currentId+' para '+event.target.id);
+		  event.target.appendChild(document.getElementById(currentId));
+			  setTimeout(function(){ $( "#"+currentId ).draggable({revertDuration: 500});}, 500);
+		  	 comprobarPuzzle();
+		  }
+		  });
+		 });
+  });
+
+
+ </script>
+
+	<header>
+		<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+		<link rel="stylesheet" href="styles.css">
+	</header>
+	<div id="logo1">
+		<img src="images/logo1.png">
+	</div>
+	<div id="logo2">
+		<img src="images/logo2.png">
+	</div>
+	<div id="moon">
+		<img src="images/moon.png">
+	</div>
+	<section id="contenedorPuzzle">
+		<div id="contenedorPiezas">
+			<img id="pieza13" src="images/r13.png">
+			<img id="pieza8" src="images/r8.png">
+			<img id="pieza4" src="images/r4.png">
+			<img id="pieza1" src="images/r1.png">
+		</div>
+		<div id="contenedorPiezas2" >
+			<img id="pieza7" src="images/r7.png">
+			<img id="pieza2" src="images/r2.png">
+			<img id="pieza9" src="images/r9.png">
+			<img id="pieza6" src="images/r6.png">
+			<img id="pieza15" src="images/r15.png">
+			<img id="pieza12" src="images/r12.png">
+		</div>
+		<div id="contenedorPiezas3" >
+			<img id="pieza16" src="images/r16.png" >
+			<img id="pieza11" src="images/r11.png">
+			<img id="pieza3" src="images/r3.png">
+			<img id="pieza14" src="images/r14.png">
+			<img id="pieza10" src="images/r10.png">
+			<img id="pieza5" src="images/r5.png">
+		</div>
+		<div id="puzzle">
+			<div class="contenedorPieza" id="uno" ></div>
+			<div class="contenedorPieza" id="dos" ></div>
+			<div class="contenedorPieza" id="tres" ></div>
+			<div class="contenedorPieza" id="cuatro" ></div>
+			<div class="contenedorPieza" id="cinco" ></div>
+			<div class="contenedorPieza" id="seis" ></div>
+			<div class="contenedorPieza" id="siete" ></div>
+			<div class="contenedorPieza" id="ocho" ></div>
+			<div class="contenedorPieza" id="nueve" ></div>
+			<div class="contenedorPieza" id="diez" ></div>
+			<div class="contenedorPieza" id="once" ></div>
+			<div class="contenedorPieza" id="doce" ></div>
+			<div class="contenedorPieza" id="trece" ></div>
+			<div class="contenedorPieza" id="catorce" ></div>
+			<div class="contenedorPieza" id="quince" ></div>
+			<div class="contenedorPieza" id="dieciseis" ></div>
+		</div>
+	</section>
+		<div id="myModal" class="modal">
+		 <div class="modal-content">
+		 <button id="modalbox">
+				<img src="images/box.png">
+			 </button>
+		 </div>
+		</div>	
+	<script src="actions.js"></script>
+</body>
+</html>
