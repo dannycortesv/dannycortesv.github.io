@@ -6,9 +6,15 @@ const TIME_OPTION2=[51,53, 56, 59, 62.1, 74.46];
 const TIME_OPTION3=[78,80, 83, 86, 89, 101.5];
 
 window.onload = function(){
+	setTimeout(function(){ startVideo(); }, 1500);
+}
+
+function startVideo(){
+	gsap.to('#backvideo', {duration:0.4, opacity: 1});
 	startHome();
 	gsap.to("#goback", {duration: 0, scale:0});
 	setCssTop("#goback", "10vh");
+	setCssTop("#logo", "110vh");
 	setEvents();
 	if(window.location.hash!=""){
 		window.location="";

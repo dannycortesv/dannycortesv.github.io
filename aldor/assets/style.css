@@ -92,7 +92,9 @@ body {
   height: 100%;
   left: 50%;
   margin-left: -88.8vh;
+  opacity: 0;
 }
+
 .menu {
   width: 100%;
   position: fixed; 
@@ -184,28 +186,28 @@ a:active {
 
 p { position:absolute; top:3px; right:28px; color:#555; font:bold 13px/1 sans-serif;}
 
-		/* these styles are for the demo, but are not required for the plugin */
-		.zoom {
-			display:inline-block;
-			position: relative;
-		}
-		
-		/* magnifying glass icon */
-		.zoom:after {
-			content:'';
-			display:block; 
-			width:33px; 
-			height:33px; 
-			position:absolute; 
-			top:0;
-			right:0;
-		}
+/* these styles are for the demo, but are not required for the plugin */
+.zoom {
+  display:inline-block;
+  position: relative;
+}
 
-		.zoom img {
-			display: block;
-		}
+/* magnifying glass icon */
+.zoom:after {
+  content:'';
+  display:block; 
+  width:33px; 
+  height:33px; 
+  position:absolute; 
+  top:0;
+  right:0;
+}
 
-		.zoom img::selection { background-color: transparent; }}
+.zoom img {
+  display: block;
+}
+
+.zoom img::selection { background-color: transparent; }
 /*
 @media screen and (max-width: 900px) {
   .menu {
