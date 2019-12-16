@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="assets/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Francois+One&display=swap" rel="stylesheet">
+		<script src='assets/resources/jquery.min.js'></script>
+		<script src='assets/resources/jquery.zoom.min.js'></script>
+		<script src="assets/resources/gsap.min.js"></script>
+		<script src="assets/actions.js"></script>
+		<title>ALDOR - SENSATIONS</title>
+	</head>
+	<body>
+
+		<video autoplay muted loop id="backvideo">
+				<source src="assets/media/sensations.mp4" type="video/mp4">
+		</video>
+
+		<a href="#home360">
+				<img id="home360" class="homeoption" src="https://via.placeholder.com/240x180/65bf50/FFFFFF?text=360º"/>
+		</a>
+		<a href="#homeopen">
+			<img id="homeopen" class="homeoption" src="https://via.placeholder.com/240x180/c33b55/FFFFFF?text=OPEN"/>
+		</a>
+
+
+		<a href="#optionview1"">
+			<img id="optionview1" class="optionview" src="https://via.placeholder.com/64x64/3794e2/FFFFFF?text=VIEW"/> 
+		</a>
+		<a href="#optionview2">
+			<img id="optionview2" class="optionview" src="https://via.placeholder.com/64x64/c33b55/FFFFFF?text=VIEW"/>
+		</a>
+		<a href="#optionview3">
+			<img id="optionview3" class="optionview" src="https://via.placeholder.com/64x64/65bf50/FFFFFF?text=VIEW"/>
+		</a>
+	
+		<div class="menu">
+			<div class="menuitem" id="menu1"><a href="#menu1">  UN<u>WR</u>AP  </a></div>
+			<div class="menuitem" id="menu2"><a href="#menu2">  <u>SCAN</u></a></div>
+			<div class="menuitem" id="menu3"><a href="#menu3">  EXP<u>ERIE</u>NCE</a></div>
+			<div class="menuitem" id="menu4"><a href="#menu4">  VIE<u>W LA</u>BEL</a></div>
+		</div>
+		
+		<a href="#option1">
+			<img id="option1" class="option" src="https://via.placeholder.com/500x800/c33b55/FFFFFF"/>
+		</a>
+		<a href="#option2">
+			<img id="option2" class="option" src="https://via.placeholder.com/500x800/65bf50/FFFFFF"/> 
+		</a>
+		<a href="#option3">
+			<img id="option3" class="option" src="https://via.placeholder.com/500x800/3794e2/FFFFFF"/>
+		</a>
+
+		<img id="zoomfront" class="buttonzoom button" src="https://via.placeholder.com/100x100/3794e2/FFFFFF?text=ZOOM"/>
+		<img id="zoomback" class="buttonzoom button" src="https://via.placeholder.com/100x100/65bf50/FFFFFF?text=ZOOM"/>
+		<img id="goback" class="goback button" src="https://via.placeholder.com/180x120/65bf50/FFFFFF?text=BACK"/>
+		
+		<div id="labelModal" class="modal">
+			<div class="modal-content" id="modalcontent">
+			  <span class="close">&times;</span>
+			  <div id="label">
+				<img id="labelimage" src="" />
+			  </div>
+			</div>
+		</div>
+
+		<div id="zoomModal" class="modal modalzoom">
+			<div class="modal-contentzoom" id="modalcontent">
+			  <span class='zoom' id="zoomspan">
+				<img class="imagenzoom" id="imagenzoom" />
+				</span>
+				<span class="close closezoom">&times;</span>
+			</div>
+		</div>
+	</body>
+</html>
