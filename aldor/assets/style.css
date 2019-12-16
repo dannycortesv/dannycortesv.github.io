@@ -7,6 +7,14 @@ body {
   font-size:18px;
 }
 
+#logo {
+  position: fixed; 
+  width: 40vh;
+  left: 50%;
+  margin-left: -20vh;
+  top: 36vh;
+}
+
 .homeoption {
   position: fixed; 
   top: -20vh;
