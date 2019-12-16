@@ -10,7 +10,7 @@ window.onload = function(){
 }
 
 function startVideo(){
-	gsap.to('#backvideo', {duration:0.4, opacity: 1});
+	gsap.to('#backvideo', {duration:1, opacity: 1});
 	startHome();
 	gsap.to("#goback", {duration: 0, scale:0});
 	setCssTop("#goback", "10vh");
