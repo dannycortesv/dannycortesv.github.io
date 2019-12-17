@@ -319,7 +319,12 @@ function pauseVideoOn(value){
 }
 
 function playVideoOn(value){
-	document.getElementById('backvideo').currentTime=value; document.getElementById('backvideo').play();
+	if(value){
+		document.getElementById('backvideo').currentTime=value; document.getElementById('backvideo').play();
+	}else{
+		console.log("Value is not defined");
+		console.log(value);
+	}
 }
 
 function setCssTop(id, value){
