@@ -1,7 +1,7 @@
 
 body {
   background-color:#dddddd;
-  color:#989898;
+  color:#606062;
   margin:0px;
   font-family: 'Francois One', sans-serif;
   font-size:18px;
@@ -108,52 +108,28 @@ body {
   margin: 0% 0% 0% 7%;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:link {
-  color: #606062;
-}
-
-a:visited {
-  color: #606062;
-}
-
-a:hover {
-  color: #454545;
-}
-
-a:active {
-  color: #353535;
-}
-
 #labelimage {
   width: 55vw;
-  /*margin-left: -88.8vh;*/
 }
 
-/* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 10vh; /* Location of the box */
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  padding-top: 10vh; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.06); /* Black w/ opacity */
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.06);
 }
-
 
 .modalzoom {
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content */
 .modal-content {
   margin: auto;
   width: 55vw;
@@ -164,7 +140,6 @@ a:active {
   width: 70vw;
 }
 
-/* The Close Button */
 .close {
   position: fixed;
   color: #333333;
@@ -176,7 +151,6 @@ a:active {
   margin: -13vh 0% 0% 53vw;
 }
 
-
 .close:hover,
 .close:focus {
   color: #000;
@@ -184,9 +158,6 @@ a:active {
   cursor: pointer;
 }
 
-p { position:absolute; top:3px; right:28px; color:#555; font:bold 13px/1 sans-serif;}
-
-/* these styles are for the demo, but are not required for the plugin */
 .zoom {
   display:inline-block;
   position: relative;
@@ -208,27 +179,3 @@ p { position:absolute; top:3px; right:28px; color:#555; font:bold 13px/1 sans-se
 }
 
 .zoom img::selection { background-color: transparent; }
-/*
-@media screen and (max-width: 900px) {
-  .menu {
-    position: fixed; 
-    margin: 2% 0% 0% 240%;
-    font-size:100%;
-  }
-
-  .menuitem {
-    margin: 0% 0% 0% 5%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .menu {
-    position: fixed; 
-    margin: 2% 0% 0% 800%;
-    font-size:100%;
-  }
-
-  .menuitem {
-    margin: 0% 0% 0% 4%;
-  }
-}*/
