@@ -25,7 +25,6 @@ function setEvents(){
 	document.getElementById("zoomfront").addEventListener("click", zoomFrontFn );
 	document.getElementById("zoomback").addEventListener("click", zoomBackFn );
 	document.getElementById("goback").addEventListener("click", goBack );
-	document.getElementById("menu4").addEventListener("click", function(){setMenu(4);});
 	document.getElementById("optionview1").addEventListener("click", function(){openView(3);});
 	document.getElementById("optionview2").addEventListener("click", function(){openView(1);});
 	document.getElementById("optionview3").addEventListener("click", function(){openView(2);});
@@ -35,6 +34,7 @@ function setEvents(){
 	document.getElementById("menu1").addEventListener("click", function(){setMenu(1);});
 	document.getElementById("menu2").addEventListener("click", function(){setMenu(2);});
 	document.getElementById("menu3").addEventListener("click", function(){setMenu(3);});
+	document.getElementById("menu4").addEventListener("click", function(){ setMenu(4);});
 }
 
 
@@ -103,8 +103,8 @@ function startHome(){
 
 function onStopHome() {
 	if(this.currentTime>TIME_START[1]){
-		setCssTop(".homeoption", "10vh"); pauseVideoOn(TIME_START[1]); removeVideoEvent(onStopHome);
-		setCssTop("#zoomfront", "76vh");
+		setCssTop(".homeoption", "5vh"); pauseVideoOn(TIME_START[1]); removeVideoEvent(onStopHome);
+		setCssTop("#zoomfront", "70vh");
 		setCssTop("#zoomback", "110vh");
 	}
 }
@@ -117,6 +117,7 @@ function view360(){
 	addVideoEvent(on180);
 	setCssTop("#zoomfront", "110vh");
 	setCssTop("#zoomback", "110vh");
+	setCssTop(".homeoption", "-20vh");
 	activeButtons=false;
 }
 
@@ -127,7 +128,6 @@ function setGoBack(scaleValue){
 function on180(){
 	if(this.currentTime>TIME_360[1]){
 		activeButtons=true;
-		setCssTop(".homeoption", "10vh");
 		pauseVideoOn(TIME_360[2]); removeVideoEvent(on180);
 		setCssTop("#zoomback", "76vh");
 	}
@@ -137,7 +137,7 @@ function openBag(){
 	removeVideoEvent(on180);
 	setGoBack(1);
 	setCssTop(".homeoption", "-20vh"); playVideoOn(TIME_OPEN_BAG[0]); addVideoEvent(onBagButtons);
-	gsap.to(".menu", {duration: 0.4, css:{margin: "-20% 0% 0% 30%"}});
+	gsap.to(".menuitem", {duration: 0.4, css:{width:"0vh"}});
 	gsap.to(".option", {duration: 0.4, scale:0});
 	setCssTop("#zoomfront", "110vh");
 	setCssTop("#zoomback", "110vh");
@@ -145,7 +145,7 @@ function openBag(){
 
 function onBagButtons() {
 	if(this.currentTime>TIME_OPEN_BAG[1]){
-		setCssTop("#optionview1", "18vh"); setCssTop("#optionview2", "15vh"); setCssTop("#optionview3", "18vh");
+		setCssTop("#optionview1", "46vh"); setCssTop("#optionview2", "37vh"); setCssTop("#optionview3", "45vh");
 		removeVideoEvent(onBagButtons); addVideoEvent(onBagStop);
 	}
 }	
@@ -182,9 +182,9 @@ function openView(option){
 		if(this.currentTime>stopTime){ 
 			removeVideoEvent(onOptionOpened); 
 			pauseVideoOn(stopTime);
-			gsap.to(".menu", {duration: 0.8, ease:Strong.easeOut, css:{margin: "2% 0% 0% 30%"}});
+			gsap.to(".menuitem", {duration: 0.2, css:{width:"20vh"}});
 			setOption(option, 0.6);
-			gsap.to(".option", {duration: 0.4, scale:1});
+			gsap.to(".option", {duration: 0.2, scale:1});
 		}
 	}	
 }

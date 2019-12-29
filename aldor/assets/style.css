@@ -18,12 +18,12 @@ body {
 .homeoption {
   position: fixed; 
   top: -20vh;
-  height: 5vw;
   left: 50vw;
+  height: 7vw;
 }
 
 #home360 {
-  margin-left: -7.7vw;
+  margin-left: -8vw;
 }
 
 #homeopen {
@@ -38,7 +38,7 @@ body {
 }
 
 #optionview1 {
-  margin-left: -18vw;
+  margin-left: -16vw;
 }
 
 #optionview2 {
@@ -46,7 +46,7 @@ body {
 }
 
 #optionview3 {
-  margin-left: 12vw;
+  margin-left: 10vw;
 }
 
 .option {
@@ -57,10 +57,10 @@ body {
 
 .buttonzoom {
   position: fixed; 
-  width: 5vh;
+  width: 14vh;
   left: 50%;
   margin-left: -20vh;
-  top: 110vh;
+  top: 150vh;
 }
 
 .imagenzoom{
@@ -96,6 +96,11 @@ body {
 }
 
 .menu {
+  position: fixed; 
+}
+
+/*
+.menu {
   width: 100%;
   position: fixed; 
   margin: -10% 0% 0% 30%;
@@ -107,6 +112,35 @@ body {
 .menuitem {
   margin: 0% 0% 0% 7%;
 }
+*/
+
+.menuitem {
+  position: fixed; 
+  width: 0vh;
+  left: 50%;
+  margin-left: -50vh;
+}
+
+#menu1 {
+  margin-left: -46vh;
+  top: 30vh;
+}
+
+#menu2 {
+  margin-left: -50vh;
+  top: 50vh;
+}
+
+#menu3 {
+  margin-left: 27vh;
+  top: 36vh;
+}
+
+#menu4 {
+  margin-left: -8vh;
+  top: 84vh;
+}
+
 
 #labelimage {
   width: 55vw;
