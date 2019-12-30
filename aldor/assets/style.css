@@ -22,7 +22,7 @@ body {
   height: 7vw;
 }
 
-#home360 {
+#home180 {
   margin-left: -8vw;
 }
 
@@ -81,7 +81,7 @@ body {
 
 #goback {
   position: fixed; 
-  width: 10vh;
+  width: 14vh;
   left: 50%;
   margin-left: -80vh;
   top: 110vh;
@@ -122,22 +122,22 @@ body {
 }
 
 #menu1 {
-  margin-left: -46vh;
+  margin-left: -37vh;
   top: 30vh;
 }
 
 #menu2 {
-  margin-left: -50vh;
+  margin-left: -43vh;
   top: 50vh;
 }
 
 #menu3 {
-  margin-left: 27vh;
+  margin-left: 22vh;
   top: 36vh;
 }
 
 #menu4 {
-  margin-left: -8vh;
+  margin-left: -10vh;
   top: 84vh;
 }
 
