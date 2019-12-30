@@ -17,7 +17,7 @@ window.onpopstate = function(event) {
 	switch(location.hash){
 		case "": startHome(); break;
 		case "#home180": setGif("home180", "180", "180_O", view180); break;
-		case "#homeopen": openBag(); break;
+		case "#homeopen": setGif("homeopen", "open", "open_O", openBag);break;
 	}
 }
 
