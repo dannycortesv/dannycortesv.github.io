@@ -32,21 +32,21 @@ body {
 
 .optionview {
   position: fixed; 
-  height: 6vw;
+  height: 8.4vh;
   left: 50vw;
   top: -50vh;
 }
 
 #optionview1 {
-  margin-left: -16vw;
+  margin-left: -26.3vh;
 }
 
 #optionview2 {
-  margin-left: -3vw;
+  margin-left: -3.99vh;
 }
 
 #optionview3 {
-  margin-left: 10vw;
+  margin-left: 18.15vh;
 }
 
 .option {

@@ -1,7 +1,19 @@
 const TIME_START=[3,4];
-const TIME_180=[7.4, 10.16, 10.3,14];
+const TIME_180=[7.4, 10.16, 10.3,13];
 const TIME_OPEN_BAG=[17,19,21];
 const TIME_OPTION1=[24,26, 29, 33, 35, 47.28];
+const UNWRAP_1=[29, 33, 45.9, 47.4];
+const UNWRAP_2=[29, 33, 45.5, 47.5];
+const UNWRAP_3=[29, 33, 45.5, 47.5];
+
+const DISCOVER_1=[29, 47.4];
+const DISCOVER_2=[29, 47.5];
+const DISCOVER_3=[29, 47.5];
+
+const SENSATION_1=[29, 47.4];
+const SENSATION_2=[29, 47.5];
+const SENSATION_3=[29, 47.5];
+
 const TIME_OPTION2=[51,53, 56, 59, 62.1, 74.46];
 const TIME_OPTION3=[78,80, 83, 86, 89, 101.5];
 
@@ -10,7 +22,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	setTimeout(function(){ startVideo(); }, 1500);
+	setTimeout(function(){ startVideo(); }, 150);
 }
 
 window.onpopstate = function(event) {
@@ -21,7 +33,6 @@ window.onpopstate = function(event) {
 	}
 }
 
-//setGif("home180", "180", "180_O", view180);
 function setEvents(){
 	document.getElementById("zoomfront").addEventListener("click", function(){setGif("zoomfront", "zoom", "zoom_O", zoomFrontFn);});
 	document.getElementById("zoomback").addEventListener("click", function(){setGif("zoomback", "zoom", "zoom_O", zoomBackFn);});
@@ -122,16 +133,29 @@ function setGif(id, gif, gif2, fn){
 	setTimeout(() => {  document.getElementById(id).src="buttons/"+gif+".gif"; }, 2000);
 }
 
-var activeButtons = true;
+var b180 = false;
 function view180(){
-	setGoBack(1);
-	setCssTop("#optionview1", "-15vh"); setCssTop("#optionview2", "-15vh"); setCssTop("#optionview3", "-15vh");
-	playVideoOn(TIME_180[0]);
-	addVideoEvent(on180);
+	if(!b180){
+		setCssTop("#optionview1", "-15vh"); setCssTop("#optionview2", "-15vh"); setCssTop("#optionview3", "-15vh");
+		playVideoOn(TIME_180[0]);
+		addVideoEvent(on180);
+	}else{
+		playVideoOn(TIME_180[1]);
+		addVideoEvent(to0);
+	}
+	b180=!b180;
+	setCssTop(".homeoption", "-20vh");
 	setCssTop("#zoomfront", "110vh");
 	setCssTop("#zoomback", "110vh");
-	setCssTop(".homeoption", "-20vh");
-	activeButtons=false;
+}
+
+function to0(){
+	if(this.currentTime>TIME_180[3]){
+		pauseVideoOn(TIME_180[3]); removeVideoEvent(to0);
+		setCssTop("#homeopen", "5vh");
+		setCssTop("#zoomfront", "70vh");
+		setCssTop("#home180", "5vh");
+	}
 }
 
 function setGoBack(scaleValue){
@@ -140,9 +164,9 @@ function setGoBack(scaleValue){
 
 function on180(){
 	if(this.currentTime>TIME_180[1]){
-		activeButtons=true;
 		pauseVideoOn(TIME_180[2]); removeVideoEvent(on180);
 		setCssTop("#zoomback", "70vh");
+		setCssTop("#home180", "5vh");
 	}
 }
 
@@ -158,7 +182,7 @@ function openBag(){
 
 function onBagButtons() {
 	if(this.currentTime>TIME_OPEN_BAG[1]){
-		setCssTop("#optionview1", "46vh"); setCssTop("#optionview2", "37vh"); setCssTop("#optionview3", "45vh");
+		setCssTop("#optionview1", "68vh"); setCssTop("#optionview2", "62vh"); setCssTop("#optionview3", "68vh");
 		removeVideoEvent(onBagButtons); addVideoEvent(onBagStop);
 	}
 }	
@@ -236,8 +260,21 @@ function setNormalMenu(){
 	gsap.to("#menu3", {duration: 0.4, ease:Strong.easeOut, scale: 1.0}); gsap.to("#menu4", {duration: 0.4, ease:Strong.easeOut, scale: 1.0});
 }
 
+function hideOptions(){
+	gsap.to(".menuitem", {duration: 0.4, css:{width:"0vh"}});
+	gsap.to(".option", {duration: 0.4, scale:0});
+	setGoBack(0);
+}
+
+function showeOptions(){
+	gsap.to(".menuitem", {duration: 0.4, css:{width:"20vh"}});
+	gsap.to(".option", {duration: 0.4, scale:1});
+}
+
 var stopmenuTime=0;
+var TIMES;
 function setMenu(option){
+	console.log(option);
 	setNormalMenu();
 	gsap.to("#menu"+option, {duration: 0.4, ease:Strong.easeOut, scale: 1.26}); //gsap.killChildTweensOf("#menu1");
 
@@ -248,35 +285,57 @@ function setMenu(option){
 		hideLabel();
 	}
 
-	var nextTime=0;
+	hideOptions(); 
+
 	switch(option){
 		case 1:  
-			nextTime=getCurrentTimes()[2]; stopmenuTime=getCurrentTimes()[4];
+			switch(currentOption){
+				case 1:  TIMES=UNWRAP_1;  break;
+				case 2:  TIMES=UNWRAP_2;  break;
+				case 3:  TIMES=UNWRAP_3;  break;
+			}
+			playVideoOn(TIMES[0]);  addVideoEvent(stopPlayUnwrapOn);
 		break;
 		case 2:  
-			nextTime=getCurrentTimes()[4]; stopmenuTime=getCurrentTimes()[5];
+			switch(currentOption){
+				case 1:  TIMES=DISCOVER_1;  break;
+				case 2:  TIMES=DISCOVER_2;  break;
+				case 3:  TIMES=DISCOVER_3;  break;
+			}
+			playVideoOn(TIMES[0]);  addVideoEvent(stopDiscover);
 		break;
 		case 3:  
-			nextTime=getCurrentTimes()[6]; stopmenuTime=getCurrentTimes()[7];
+			switch(currentOption){
+				case 1:  TIMES=SENSATION_1;  break;
+				case 2:  TIMES=SENSATION_2;  break;
+				case 3:  TIMES=SENSATION_3;  break;
+			}
+			playVideoOn(TIMES[0]);  addVideoEvent(stopSensation);
 		break;
-		case 4:  
-			nextTime=getCurrentTimes()[6]; stopmenuTime=getCurrentTimes()[7];
-		break;
-	}
-	playVideoOn(nextTime);  addVideoEvent(stopMenuOn);
-}
-
-function stopMenuOn(){
-	if(this.currentTime>stopmenuTime){ 
-		removeVideoEvent(stopMenuOn); pauseVideoOn(stopmenuTime); 
 	}
 }
 
-function getCurrentTimes(){
-	switch(currentOption){
-		case 1:  return TIME_OPTION1;  break;
-		case 2:  return TIME_OPTION2;  break;
-		case 3:  return TIME_OPTION3;  break;
+function stopPlayUnwrapOn(){
+	if(this.currentTime>TIMES[1]){ 
+		removeVideoEvent(stopPlayUnwrapOn); playVideoOn(TIMES[2]); addVideoEvent(stopUnwrap);
+	}
+}
+
+function stopUnwrap(){
+	if(this.currentTime>TIMES[3]){ 
+		removeVideoEvent(stopUnwrap); pauseVideoOn(TIMES[3]); showeOptions();
+	}
+}
+
+function stopDiscover(){
+	if(this.currentTime>TIMES[1]){ 
+		removeVideoEvent(stopDiscover); pauseVideoOn(TIMES[1]); showeOptions();
+	}
+}
+
+function stopSensation(){
+	if(this.currentTime>TIMES[1]){ 
+		removeVideoEvent(stopSensation); pauseVideoOn(TIMES[1]); showeOptions();
 	}
 }
 
@@ -308,6 +367,7 @@ function hideLabel(){
 }
 
 function viewLabel(){
+	console.log("vielabel "+modalOn);
 	if(!modalOn){
 		modalOn=true;
 		document.getElementById("labelModal").style.display = "block";
