@@ -19,15 +19,15 @@ body {
   position: fixed; 
   top: -20vh;
   left: 50vw;
-  height: 7vw;
+  height: 13vh;
 }
 
 #home180 {
-  margin-left: -8vw;
+  margin-left: -17vh;
 }
 
 #homeopen {
-  margin-left: 1vw;
+  margin-left: 2vh;
 }
 
 .optionview {
@@ -82,8 +82,7 @@ body {
 #goback {
   position: fixed; 
   width: 14vh;
-  left: 50%;
-  margin-left: -80vh;
+  margin-left: 10vw;
   top: 110vh;
 }
 
@@ -99,26 +98,12 @@ body {
   position: fixed; 
 }
 
-/*
-.menu {
-  width: 100%;
-  position: fixed; 
-  margin: -10% 0% 0% 30%;
-  font-size:100%;
-  display: flex;
-  align-items: flex-start;
-}
-
-.menuitem {
-  margin: 0% 0% 0% 7%;
-}
-*/
-
 .menuitem {
   position: fixed; 
-  width: 0vh;
+  width: 20vh;
   left: 50%;
   margin-left: -50vh;
+  margin-top: -250vh;
 }
 
 #menu1 {
@@ -213,3 +198,72 @@ body {
 }
 
 .zoom img::selection { background-color: transparent; }
+
+@media only screen and (max-width: 768px) {
+  
+#backvideo {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  margin-left: 0;
+}
+
+.buttonzoom {
+  position: fixed; 
+  width: 14vh;
+  left: 50%;
+  margin-left: -16vh;
+  margin-top: -14vh;
+}
+
+.optionview {
+  position: fixed; 
+  height: 12vw;
+  left: 50vw;
+  top: -50vh;
+  margin-top: -12vh;
+}
+
+#optionview1 {
+  margin-left: -18.2vw;
+}
+
+#optionview2 {
+  margin-left: -6vw;
+}
+
+#optionview3 {
+  margin-left: 6.5vw;
+}
+
+.menuitem {
+  position: fixed; 
+  width: 35vw;
+  left: 50%;
+  margin-left: -50vh;
+}
+
+#menu1 {
+  margin-left: -45vw;
+  top: 37vh;
+}
+
+#menu2 {
+  margin-left: -47vw;
+  top: 47vh;
+}
+
+#menu3 {
+  margin-left: 12vw;
+  top: 42vh;
+}
+
+#menu4 {
+  margin-left: -17.5vw;
+  top: 63vh;
+}
+
+
+
+
+}

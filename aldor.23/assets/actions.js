@@ -6,6 +6,10 @@ const UNWRAP_1=[29, 33, 45.9, 47.4];
 const UNWRAP_2=[29, 33, 45.5, 47.5];
 const UNWRAP_3=[29, 33, 45.5, 47.5];
 
+const GO_BAG_1=[47.4, 48.1];
+const GO_BAG_2=[47.4, 48.1];
+const GO_BAG_3=[47.4, 48.1];
+
 const DISCOVER_1=[29, 47.4];
 const DISCOVER_2=[29, 47.5];
 const DISCOVER_3=[29, 47.5];
@@ -17,6 +21,11 @@ const SENSATION_3=[29, 47.5];
 const TIME_OPTION2=[51,53, 56, 59, 62.1, 74.46];
 const TIME_OPTION3=[78,80, 83, 86, 89, 101.5];
 
+const SCREEN_HOME="SCREEN_HOME";
+const SCREEN_BAG="SCREEN_BAG";
+const SCREEN_VIEW="SCREEN_VIEW";
+var activeScreen="";
+
 window.onload = function(){
 	if(window.location.hash!=""){
 		window.location="";
@@ -25,15 +34,9 @@ window.onload = function(){
 	setTimeout(function(){ startVideo(); }, 150);
 }
 
-window.onpopstate = function(event) {
-	switch(location.hash){
-		case "": startHome(); break;
-		case "#home180": setGif("home180", "180", "180_O", view180); break;
-		case "#homeopen": setGif("homeopen", "open", "open_O", openBag);break;
-	}
-}
-
 function setEvents(){
+	document.getElementById("home180").addEventListener("click", function(){setGif("home180", "180", "180_O", view180);});
+	document.getElementById("homeopen").addEventListener("click", function(){setGif("homeopen", "open", "open_O", openBag);});
 	document.getElementById("zoomfront").addEventListener("click", function(){setGif("zoomfront", "zoom", "zoom_O", zoomFrontFn);});
 	document.getElementById("zoomback").addEventListener("click", function(){setGif("zoomback", "zoom", "zoom_O", zoomBackFn);});
 	document.getElementById("goback").addEventListener("click", goBack );
@@ -65,17 +68,43 @@ function goBack(){
 }
 
 function goBackAction(){
-	switch(window.location.hash){
-		case "#home180":
-				window.location.hash=""; 
-				break;
-		case "#homeopen":
-			window.location.hash="";
-			break;
+	switch(activeScreen){
+		case SCREEN_BAG:
+			backToHome();
+		break;
 		default:
-			window.location.hash="#homeopen";
+			backOpenBag();
+			setGoBack(0);
 		break;
 	}
+}
+
+var startTimeGB;
+var stopTimeGB;
+
+function backOpenBag(){
+	baseopenBag();
+	setTimeout(animateToBak, 500);
+
+	switch(currentOption){
+		case 1:  startTimeGB=GO_BAG_1[0]; stopTimeGB=GO_BAG_1[1];  break;
+		case 2:  startTimeGB=GO_BAG_2[0]; stopTimeGB=GO_BAG_2[1];  break;
+		case 3:  startTimeGB=GO_BAG_3[0]; stopTimeGB=GO_BAG_3[1];  break;
+	}
+
+	playVideoOn(startTimeGB);  addVideoEvent(onStopGoBag);
+}
+
+function onStopGoBag() {
+	if(this.currentTime>=stopTimeGB){
+		pauseVideoOn(stopTimeGB); removeVideoEvent(onStopGoBag);
+		onStopBagAnimations();
+		setGoBack(1);
+	}
+}
+
+function animateToBak(){
+	console.log('animateToBak!');
 }
 
 function setCloseModalEvent(){
@@ -110,20 +139,41 @@ function zoomImageBag(){
     $('#zoomspan').zoom({url: newImageUrl});
 }
 
-function startHome(){
+function startHomeBase(){
+	activeScreen=SCREEN_HOME;
 	setGoBack(0);
 	setCssTop(".homeoption", "-20vh");
 	setCssTop("#optionview1", "-15vh"); setCssTop("#optionview2", "-15vh"); setCssTop("#optionview3", "-15vh");
+	setCssTop("#zoomfront", "130vh");
+	setCssTop("#zoomback", "130vh");
+}
+
+function startHome(){
+	startHomeBase();
 	playVideoOn(TIME_START[0]);  addVideoEvent(onStopHome);
-	setCssTop("#zoomfront", "110vh");
-	setCssTop("#zoomback", "110vh");
+}
+
+function backToHome(){
+	startHomeBase();
+	onStopHomeAnimations();
+	gsap.to('#backvideo', {duration:0.26, opacity: 0});
+	setTimeout(() => {  
+		pauseVideoOn(TIME_START[1]);
+	}, 300);
+	setTimeout(() => {  
+		gsap.to('#backvideo', {duration:0.4, opacity: 1});
+	}, 350);
+}
+
+function onStopHomeAnimations(){
+	setCssTop(".homeoption", "5vh"); 
+	setCssTop("#zoomfront", "70vh");
+	setCssTop("#zoomback", "130vh");
 }
 
 function onStopHome() {
 	if(this.currentTime>TIME_START[1]){
-		setCssTop(".homeoption", "5vh"); pauseVideoOn(TIME_START[1]); removeVideoEvent(onStopHome);
-		setCssTop("#zoomfront", "70vh");
-		setCssTop("#zoomback", "110vh");
+		pauseVideoOn(TIME_START[1]); removeVideoEvent(onStopHome); onStopHomeAnimations();
 	}
 }
 
@@ -145,8 +195,8 @@ function view180(){
 	}
 	b180=!b180;
 	setCssTop(".homeoption", "-20vh");
-	setCssTop("#zoomfront", "110vh");
-	setCssTop("#zoomback", "110vh");
+	setCssTop("#zoomfront", "130vh");
+	setCssTop("#zoomback", "130vh");
 }
 
 function to0(){
@@ -172,20 +222,31 @@ function on180(){
 
 function openBag(){
 	removeVideoEvent(on180);
+	baseopenBag();
+	playVideoOn(TIME_OPEN_BAG[0]); addVideoEvent(onBagButtons);
+}
+
+
+
+function baseopenBag(){
+	activeScreen=SCREEN_BAG;
 	setGoBack(1);
-	setCssTop(".homeoption", "-20vh"); playVideoOn(TIME_OPEN_BAG[0]); addVideoEvent(onBagButtons);
-	gsap.to(".menuitem", {duration: 0.4, css:{width:"0vh"}});
+	setCssTop(".homeoption", "-20vh"); 
+	gsap.to(".menuitem", 0.2, {scaleX: 0, scaleY: 0, transformOrigin: "50% 50%"});
 	gsap.to(".option", {duration: 0.4, scale:0});
-	setCssTop("#zoomfront", "110vh");
-	setCssTop("#zoomback", "110vh");
+	setCssTop("#zoomfront", "130vh");
+	setCssTop("#zoomback", "130vh");
 }
 
 function onBagButtons() {
 	if(this.currentTime>TIME_OPEN_BAG[1]){
-		setCssTop("#optionview1", "68vh"); setCssTop("#optionview2", "62vh"); setCssTop("#optionview3", "68vh");
-		removeVideoEvent(onBagButtons); addVideoEvent(onBagStop);
+		onStopBagAnimations(); removeVideoEvent(onBagButtons); addVideoEvent(onBagStop);
 	}
 }	
+
+function onStopBagAnimations(){
+	setCssTop("#optionview1", "68vh"); setCssTop("#optionview2", "62vh"); setCssTop("#optionview3", "68vh");	
+}
 
 function onBagStop() {
 	if(this.currentTime>TIME_OPEN_BAG[2]){
@@ -198,10 +259,8 @@ var currentOption=0;
 function clickview1(){ openView(1);} function clickview2(){ openView(2);} function clickview3(){ openView(3);}
 
 function openView(option){
-	window.location.hash="#onview";
-
+	activeScreen=SCREEN_VIEW;
 	removeVideoEvent(onBagButtons); removeVideoEvent(onBagStop); setCssTop(".optionview", "-20vh");
-	setNormalMenu();
 	hideLabel();
 
 	currentOption=option;
@@ -221,7 +280,7 @@ function openView(option){
 		if(this.currentTime>stopTime){ 
 			removeVideoEvent(onOptionOpened); 
 			pauseVideoOn(stopTime);
-			gsap.to(".menuitem", {duration: 0.2, css:{width:"20vh"}});
+			gsap.to(".menuitem", {duration: 0.2, scale:1,"margin-top": "0vh"});
 			setOption(option, 0.6);
 			gsap.to(".option", {duration: 0.2, scale:1});
 		}
@@ -255,19 +314,16 @@ function setOption(option, dur=0.5){
 	}
 }
 
-function setNormalMenu(){
-	gsap.to("#menu1", {duration: 0.4, ease:Strong.easeOut, scale: 1.0}); gsap.to("#menu2", {duration: 0.4, ease:Strong.easeOut, scale: 1.0});
-	gsap.to("#menu3", {duration: 0.4, ease:Strong.easeOut, scale: 1.0}); gsap.to("#menu4", {duration: 0.4, ease:Strong.easeOut, scale: 1.0});
-}
-
 function hideOptions(){
-	gsap.to(".menuitem", {duration: 0.4, css:{width:"0vh"}});
+	console.log('hide options');
 	gsap.to(".option", {duration: 0.4, scale:0});
+	gsap.to(".menuitem", 0.2, {scaleX: 0, scaleY: 0, transformOrigin: "50% 50%"});
 	setGoBack(0);
 }
 
 function showeOptions(){
-	gsap.to(".menuitem", {duration: 0.4, css:{width:"20vh"}});
+	console.log('show options');
+	gsap.to(".menuitem", {duration: 0.2, scale:1});
 	gsap.to(".option", {duration: 0.4, scale:1});
 }
 
@@ -275,8 +331,6 @@ var stopmenuTime=0;
 var TIMES;
 function setMenu(option){
 	console.log(option);
-	setNormalMenu();
-	gsap.to("#menu"+option, {duration: 0.4, ease:Strong.easeOut, scale: 1.26}); //gsap.killChildTweensOf("#menu1");
 
 	if(option==4){
 		viewLabel();
@@ -323,19 +377,19 @@ function stopPlayUnwrapOn(){
 
 function stopUnwrap(){
 	if(this.currentTime>TIMES[3]){ 
-		removeVideoEvent(stopUnwrap); pauseVideoOn(TIMES[3]); showeOptions();
+		removeVideoEvent(stopUnwrap); pauseVideoOn(TIMES[3]); showeOptions(); setGoBack(1);
 	}
 }
 
 function stopDiscover(){
 	if(this.currentTime>TIMES[1]){ 
-		removeVideoEvent(stopDiscover); pauseVideoOn(TIMES[1]); showeOptions();
+		removeVideoEvent(stopDiscover); pauseVideoOn(TIMES[1]); showeOptions(); setGoBack(1);
 	}
 }
 
 function stopSensation(){
 	if(this.currentTime>TIMES[1]){ 
-		removeVideoEvent(stopSensation); pauseVideoOn(TIMES[1]); showeOptions();
+		removeVideoEvent(stopSensation); pauseVideoOn(TIMES[1]); showeOptions(); setGoBack(1);
 	}
 }
 
@@ -362,7 +416,6 @@ function hideLabel(){
 	if(modalOn){
 		modalOn=false;
 		gsap.to("#modalcontent", {duration: 0.3,  ease:Strong.easeIn, scale:0, onComplete:closeAllModals});
-		setNormalMenu();
 	}
 }
 
