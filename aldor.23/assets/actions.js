@@ -1,25 +1,26 @@
 const TIME_START=[3,4];
 const TIME_180=[7.4, 10.16, 10.3,13];
-const TIME_OPEN_BAG=[17,19,21];
-const TIME_OPTION1=[24,26, 29, 33, 35, 47.28];
+const TIME_OPEN_BAG=[17,19,21]
+;
 const UNWRAP_1=[29, 33, 45.9, 47.4];
-const UNWRAP_2=[29, 33, 45.5, 47.5];
-const UNWRAP_3=[29, 33, 45.5, 47.5];
+const UNWRAP_2=[56, 59, 73, 74.46];
+const UNWRAP_3=[83, 86, 100, 101.5];
 
 const GO_BAG_1=[47.4, 48.1];
-const GO_BAG_2=[47.4, 48.1];
-const GO_BAG_3=[47.4, 48.1];
+const GO_BAG_2=[74.46, 76];
+const GO_BAG_3=[101.5, 103];
 
 const DISCOVER_1=[29, 47.4];
-const DISCOVER_2=[29, 47.5];
-const DISCOVER_3=[29, 47.5];
+const DISCOVER_2=[56, 74.46];
+const DISCOVER_3=[83, 101.5];
 
 const SENSATION_1=[29, 47.4];
-const SENSATION_2=[29, 47.5];
-const SENSATION_3=[29, 47.5];
+const SENSATION_2=[56, 74.46];
+const SENSATION_3=[83, 101.5];
 
-const TIME_OPTION2=[51,53, 56, 59, 62.1, 74.46];
-const TIME_OPTION3=[78,80, 83, 86, 89, 101.5];
+const SELECT_1=[24, 26];
+const SELECT_2=[51, 53];
+const SELECT_3=[78, 80];
 
 const SCREEN_HOME="SCREEN_HOME";
 const SCREEN_BAG="SCREEN_BAG";
@@ -267,9 +268,9 @@ function openView(option){
 	var stopTime=0;
 
 	switch(option){
-		case 1: playVideoOn(TIME_OPTION1[0]); stopTime=TIME_OPTION1[1]; break;
-		case 2: playVideoOn(TIME_OPTION2[0]); stopTime=TIME_OPTION2[1]; break;
-		case 3: playVideoOn(TIME_OPTION3[0]); stopTime=TIME_OPTION3[1]; break;
+		case 1: playVideoOn(SELECT_1[0]); stopTime=SELECT_1[1]; break;
+		case 2: playVideoOn(SELECT_2[0]); stopTime=SELECT_2[1]; break;
+		case 3: playVideoOn(SELECT_3[0]); stopTime=SELECT_3[1]; break;
 	}
 
 	setOption(option, 0);
@@ -293,9 +294,9 @@ function setViewOption(option){
 	currentOption=option;
 	var stopTime=0;
 	switch(option){
-		case 1: stopTime=TIME_OPTION1[1]; break;
-		case 2: stopTime=TIME_OPTION2[1]; break;
-		case 3: stopTime=TIME_OPTION3[1]; break;
+		case 1: stopTime=SELECT_1[1]; break;
+		case 2: stopTime=SELECT_2[1]; break;
+		case 3: stopTime=SELECT_3[1]; break;
 	}
 	setOption(option); setTimeout(() => {  pauseVideoOn(stopTime); }, 200);
 }
@@ -372,11 +373,13 @@ function setMenu(option){
 function stopPlayUnwrapOn(){
 	if(this.currentTime>TIMES[1]){ 
 		removeVideoEvent(stopPlayUnwrapOn); playVideoOn(TIMES[2]); addVideoEvent(stopUnwrap);
+		console.log(TIMES[1]);	console.log(TIMES[2]);
 	}
 }
 
 function stopUnwrap(){
 	if(this.currentTime>TIMES[3]){ 
+		console.log(TIMES[3]);
 		removeVideoEvent(stopUnwrap); pauseVideoOn(TIMES[3]); showeOptions(); setGoBack(1);
 	}
 }
