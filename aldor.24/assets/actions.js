@@ -36,11 +36,12 @@ window.onload = function(){
 }
 
 function setEvents(){
+	document.addEventListener("click", freezeClicFn, true);
 	document.getElementById("home180").addEventListener("click", function(){setGif("home180", "180", "180_O", view180);});
 	document.getElementById("homeopen").addEventListener("click", function(){setGif("homeopen", "open", "open_O", openBag);});
 	document.getElementById("zoomfront").addEventListener("click", function(){setGif("zoomfront", "zoom", "zoom_O", zoomFrontFn);});
 	document.getElementById("zoomback").addEventListener("click", function(){setGif("zoomback", "zoom", "zoom_O", zoomBackFn);});
-	document.getElementById("goback").addEventListener("click", goBack );
+	document.getElementById("goback").addEventListener("click", function(){setGif("goback", "back", "back_O", goBackAction);});
 	document.getElementById("optionview1").addEventListener("click", function(){setGif("optionview1", "circulo", "circulo_O", clickview3);});
 	document.getElementById("optionview2").addEventListener("click", function(){setGif("optionview2", "circulo", "circulo_O", clickview1);});
 	document.getElementById("optionview3").addEventListener("click", function(){setGif("optionview3", "circulo", "circulo_O", clickview2);});
@@ -53,6 +54,22 @@ function setEvents(){
 	document.getElementById("menu4").addEventListener("click", function(){setGif("menu4", "view-label", "view-label_O", setMenu4);});
 }
 
+let freezeClic = false;
+function freezeClicFn(e) {
+	if(freezeClic){
+		e.stopPropagation();
+		e.preventDefault();
+	}
+}
+
+function setFreeze(value){
+	if(value){
+		freezeClic=true;
+	}else{
+		freezeClic=false;
+	}
+}
+
 function setMenu1(){ setMenu(1);} function setMenu2(){ setMenu(2);} function setMenu3(){ setMenu(3);} function setMenu4(){ setMenu(4);}
 
 function startVideo(){
@@ -62,10 +79,6 @@ function startVideo(){
 	setCssTop("#goback", "10vh");
 	setCssTop("#logo", "110vh");
 	setEvents();
-}
-
-function goBack(){
-	setGif("goback", "back", "back_O", goBackAction);
 }
 
 function goBackAction(){
@@ -85,7 +98,6 @@ var stopTimeGB;
 
 function backOpenBag(){
 	baseopenBag();
-	setTimeout(animateToBak, 500);
 
 	switch(currentOption){
 		case 1:  startTimeGB=GO_BAG_1[0]; stopTimeGB=GO_BAG_1[1];  break;
@@ -101,22 +113,8 @@ function onStopGoBag() {
 		pauseVideoOn(stopTimeGB); removeVideoEvent(onStopGoBag);
 		onStopBagAnimations();
 		setGoBack(1);
+		setFreeze(false);
 	}
-}
-
-function animateToBak(){
-	console.log('animateToBak!');
-}
-
-function setCloseModalEvent(){
-	setTimeout(function(){ window.onclick = closeAllModals; }, 500);
-}
-
-function closeAllModals(){
-	document.getElementById("zoomModal").style.display = "none";
-	document.getElementById("labelModal").style.display = "none";
-	window.onclick=null;
-	hideLabel();
 }
 
 var newImageUrl;
@@ -131,13 +129,18 @@ function zoomFrontFn(){
 }
 
 function zoomImageBag(){
-	console.log('zoom to '+newImageUrl);
-	setCloseModalEvent();
+	setFreeze(false);
+	setTimeout(function(){ window.onclick = closeZoomModal; }, 500);
 	document.getElementById("imagenzoom").src=newImageUrl;
 	document.getElementById("zoomModal").style.display = "block";
 	setCssTop("#zoomspan", "4vh");
-    $('#zoomspan').trigger('zoom.destroy');
-    $('#zoomspan').zoom({url: newImageUrl});
+	$('#zoomspan').trigger('zoom.destroy');
+	$('#zoomspan').zoom({url: newImageUrl});
+}
+
+function closeZoomModal(){
+	document.getElementById("zoomModal").style.display = "none";
+	window.onclick=null;
 }
 
 function startHomeBase(){
@@ -160,6 +163,7 @@ function backToHome(){
 	gsap.to('#backvideo', {duration:0.26, opacity: 0});
 	setTimeout(() => {  
 		pauseVideoOn(TIME_START[1]);
+		setFreeze(false);
 	}, 300);
 	setTimeout(() => {  
 		gsap.to('#backvideo', {duration:0.4, opacity: 1});
@@ -179,6 +183,7 @@ function onStopHome() {
 }
 
 function setGif(id, gif, gif2, fn){
+	setFreeze(true);
 	document.getElementById(id).src="buttons/"+gif2+".gif";
 	setTimeout(fn, 1000);
 	setTimeout(() => {  document.getElementById(id).src="buttons/"+gif+".gif"; }, 2000);
@@ -206,6 +211,7 @@ function to0(){
 		setCssTop("#homeopen", "5vh");
 		setCssTop("#zoomfront", "70vh");
 		setCssTop("#home180", "5vh");
+		setFreeze(false);
 	}
 }
 
@@ -218,6 +224,7 @@ function on180(){
 		pauseVideoOn(TIME_180[2]); removeVideoEvent(on180);
 		setCssTop("#zoomback", "70vh");
 		setCssTop("#home180", "5vh");
+		setFreeze(false);
 	}
 }
 
@@ -231,7 +238,6 @@ function openBag(){
 
 function baseopenBag(){
 	activeScreen=SCREEN_BAG;
-	setGoBack(1);
 	setCssTop(".homeoption", "-20vh"); 
 	gsap.to(".menuitem", 0.2, {scaleX: 0, scaleY: 0, transformOrigin: "50% 50%"});
 	gsap.to(".option", {duration: 0.4, scale:0});
@@ -241,7 +247,7 @@ function baseopenBag(){
 
 function onBagButtons() {
 	if(this.currentTime>TIME_OPEN_BAG[1]){
-		onStopBagAnimations(); removeVideoEvent(onBagButtons); addVideoEvent(onBagStop);
+		removeVideoEvent(onBagButtons); addVideoEvent(onBagStop);
 	}
 }	
 
@@ -252,6 +258,9 @@ function onStopBagAnimations(){
 function onBagStop() {
 	if(this.currentTime>TIME_OPEN_BAG[2]){
 		pauseVideoOn(TIME_OPEN_BAG[2]); removeVideoEvent(onBagStop);
+		onStopBagAnimations(); 
+		setFreeze(false);
+		setGoBack(1);
 	}
 }	
 
@@ -262,8 +271,7 @@ function clickview1(){ openView(1);} function clickview2(){ openView(2);} functi
 function openView(option){
 	activeScreen=SCREEN_VIEW;
 	removeVideoEvent(onBagButtons); removeVideoEvent(onBagStop); setCssTop(".optionview", "-20vh");
-	hideLabel();
-
+	
 	currentOption=option;
 	var stopTime=0;
 
@@ -279,6 +287,7 @@ function openView(option){
 
 	function onOptionOpened() {
 		if(this.currentTime>stopTime){ 
+			setFreeze(false);
 			removeVideoEvent(onOptionOpened); 
 			pauseVideoOn(stopTime);
 			gsap.to(".menuitem", {duration: 0.2, scale:1,"margin-top": "0vh"});
@@ -289,8 +298,8 @@ function openView(option){
 }
 
 function setViewOption(option){
+	setFreeze(true);
 	removeCurrentVideoEvent();
-	hideLabel();
 	currentOption=option;
 	var stopTime=0;
 	switch(option){
@@ -298,7 +307,7 @@ function setViewOption(option){
 		case 2: stopTime=SELECT_2[1]; break;
 		case 3: stopTime=SELECT_3[1]; break;
 	}
-	setOption(option); setTimeout(() => {  pauseVideoOn(stopTime); }, 200);
+	setOption(option); setTimeout(() => {  pauseVideoOn(stopTime); setFreeze(false); }, 200);
 }
 
 function setOption(option, dur=0.5){
@@ -316,28 +325,23 @@ function setOption(option, dur=0.5){
 }
 
 function hideOptions(){
-	console.log('hide options');
 	gsap.to(".option", {duration: 0.4, scale:0});
 	gsap.to(".menuitem", 0.2, {scaleX: 0, scaleY: 0, transformOrigin: "50% 50%"});
 	setGoBack(0);
 }
 
 function showeOptions(){
-	console.log('show options');
 	gsap.to(".menuitem", {duration: 0.2, scale:1});
 	gsap.to(".option", {duration: 0.4, scale:1});
+	setFreeze(false);
 }
 
 var stopmenuTime=0;
 var TIMES;
 function setMenu(option){
-	console.log(option);
-
 	if(option==4){
 		viewLabel();
 		return;
-	}else{
-		hideLabel();
 	}
 
 	hideOptions(); 
@@ -373,13 +377,11 @@ function setMenu(option){
 function stopPlayUnwrapOn(){
 	if(this.currentTime>TIMES[1]){ 
 		removeVideoEvent(stopPlayUnwrapOn); playVideoOn(TIMES[2]); addVideoEvent(stopUnwrap);
-		console.log(TIMES[1]);	console.log(TIMES[2]);
 	}
 }
 
 function stopUnwrap(){
 	if(this.currentTime>TIMES[3]){ 
-		console.log(TIMES[3]);
 		removeVideoEvent(stopUnwrap); pauseVideoOn(TIMES[3]); showeOptions(); setGoBack(1);
 	}
 }
@@ -413,37 +415,36 @@ function setBig(option, id, dur){
 	}
 }
 
-var modalOn=false;
-
 function hideLabel(){
-	if(modalOn){
-		modalOn=false;
-		gsap.to("#modalcontent", {duration: 0.3,  ease:Strong.easeIn, scale:0, onComplete:closeAllModals});
-	}
+	gsap.to("#modalcontent", {duration: 0.3,  ease:Strong.easeIn, scale:0, onComplete:closeLabelModal});
+	window.onclick=null;
+}
+
+function closeLabelModal(){
+	document.getElementById("labelModal").style.display = "none";
 }
 
 function viewLabel(){
-	console.log("vielabel "+modalOn);
-	if(!modalOn){
-		modalOn=true;
-		document.getElementById("labelModal").style.display = "block";
-		setCloseModalEvent();
+	document.getElementById("labelModal").style.display = "block";
+	setTimeout(function(){ window.onclick = closeLModal; }, 500);
 
-		var imageSRC="";
-		switch(currentOption){
-			case 1:  imageSRC="assets/media/label1.jpg"; break;
-			case 2:  imageSRC="assets/media/label2.jpg"; break;
-			case 3:  imageSRC="assets/media/label3.jpg"; break;
-		}
-
-		document.getElementById("labelimage").src=imageSRC;
-
-		gsap.to("#modalcontent", {duration: 0, scale:0});
-		gsap.to("#modalcontent", {duration: 0.3,  ease:Strong.easeOut, scale:1});
+	var imageSRC="";
+	switch(currentOption){
+		case 1:  imageSRC="assets/media/label1.jpg"; break;
+		case 2:  imageSRC="assets/media/label2.jpg"; break;
+		case 3:  imageSRC="assets/media/label3.jpg"; break;
 	}
+
+	document.getElementById("labelimage").src=imageSRC;
+
+	gsap.to("#modalcontent", {duration: 0, scale:0});
+	gsap.to("#modalcontent", {duration: 0.3,  ease:Strong.easeOut, scale:1});
+
+	setFreeze(false);
 }
 
-// UTILS
+function closeLModal(){ hideLabel(); }
+
 
 function pauseVideoOn(value){
 	document.getElementById('backvideo').pause(); document.getElementById('backvideo').currentTime=value;
