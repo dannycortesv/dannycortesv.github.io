@@ -3,8 +3,6 @@ body {
   background-color:#dddddd;
   color:#606062;
   margin:0px;
-  font-family: 'Francois One', sans-serif;
-  font-size:18px;
 }
 
 #logo {
@@ -216,12 +214,12 @@ body {
   .buttonzoom {
     left: 50vw;
     margin-left: -15vw;
-    top: 48vh;
+    top: 54vh;
     width: 7vh;
   }
 
   .homeoption {
-    top: 29vh;
+    top: 36vh;
     left: 50vw;
     height: 5vh;
   }
@@ -238,7 +236,7 @@ body {
       height: 9vw;
       left: 50vw;
       top: -50vh;
-      margin-top: -18vh;
+      margin-top: -12vh;
     }
 
     #optionview1 {
@@ -259,7 +257,7 @@ body {
     #goback {
       width: 7vh;
       margin-left: 6vw;
-      top: 30vh;
+      top: 37vh;
     }
 
     .menuitem {
@@ -268,25 +266,25 @@ body {
     
     #menu1 {
       margin-left: -29vw;
-      top: 33vh;
+      top: 39vh;
     }
     
     #menu2 {
       margin-left: -31vw;
-      top: 43vh;
+      top: 50vh;
     }
     
     #menu3 {
       margin-left: 12vw;
-      top: 35vh;
+      top: 42vh;
     }
     
     #menu4 {
       margin-left: -10vw;
-      top: 51vh;
+      top: 58vh;
     }
     
     .option {
-      bottom: 28vh;
+      bottom: 21vh;
     }
 }
