@@ -32,7 +32,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	setTimeout(function(){ startVideo(); }, 150);
+	setTimeout(function(){ startVideo(); }, 2000);
 	startItems();
 }
 
