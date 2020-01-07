@@ -216,12 +216,12 @@ body {
   .buttonzoom {
     left: 50vw;
     margin-left: -15vw;
-    top: 54vh;
+    top: 48vh;
     width: 7vh;
   }
 
   .homeoption {
-    top: 36vh;
+    top: 29vh;
     left: 50vw;
     height: 5vh;
   }
@@ -238,7 +238,7 @@ body {
       height: 9vw;
       left: 50vw;
       top: -50vh;
-      margin-top: -12vh;
+      margin-top: -18vh;
     }
 
     #optionview1 {
@@ -257,9 +257,9 @@ body {
     }
 
     #goback {
-      width: 8vh;
-      margin-left: 10vw;
-      top: 37vh;
+      width: 7vh;
+      margin-left: 6vw;
+      top: 30vh;
     }
 
     .menuitem {
@@ -268,25 +268,25 @@ body {
     
     #menu1 {
       margin-left: -29vw;
-      top: 40vh;
+      top: 33vh;
     }
     
     #menu2 {
       margin-left: -31vw;
-      top: 50vh;
+      top: 43vh;
     }
     
     #menu3 {
       margin-left: 12vw;
-      top: 42vh;
+      top: 35vh;
     }
     
     #menu4 {
       margin-left: -10vw;
-      top: 58vh;
+      top: 51vh;
     }
     
     .option {
-      bottom: 36vh;
+      bottom: 28vh;
     }
 }
