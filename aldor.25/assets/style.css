@@ -17,9 +17,10 @@ body {
 
 .homeoption {
   position: fixed; 
-  top: -20vh;
+  top: 5vh;
   left: 50vw;
   height: 13vh;
+  opacity: 0;
 }
 
 #home180 {
@@ -34,25 +35,28 @@ body {
   position: fixed; 
   height: 8.4vh;
   left: 50vw;
-  top: -50vh;
+  opacity: 0;
 }
 
 #optionview1 {
   margin-left: -26.3vh;
+  top: 68vh;
 }
 
 #optionview2 {
   margin-left: -3.99vh;
+  top: 62vh;
 }
 
 #optionview3 {
   margin-left: 18.15vh;
+  top: 68vh;
 }
 
 .option {
   position: fixed; 
   bottom: 0px;
-  width: 0%;
+  opacity: 0;
 }
 
 .buttonzoom {
@@ -60,7 +64,8 @@ body {
   width: 14vh;
   left: 50%;
   margin-left: -20vh;
-  top: 150vh;
+  top: 70vh;
+  opacity: 0;
 }
 
 .imagenzoom{
@@ -83,7 +88,8 @@ body {
   position: fixed; 
   width: 14vh;
   margin-left: 10vw;
-  top: 110vh;
+  top: 10vh;
+  opacity: 0;
 }
 
 #backvideo {
@@ -103,7 +109,7 @@ body {
   width: 20vh;
   left: 50%;
   margin-left: -50vh;
-  margin-top: -250vh;
+  opacity: 0;
 }
 
 #menu1 {
@@ -199,71 +205,88 @@ body {
 
 .zoom img::selection { background-color: transparent; }
 
-@media only screen and (max-width: 768px) {
-  
-#backvideo {
-  position: fixed;
-  width: 100%;
-  left: 0;
-  margin-left: 0;
-}
+@media only screen and (max-width: 415px) {
+  #backvideo {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+  }
 
-.buttonzoom {
-  position: fixed; 
-  width: 14vh;
-  left: 50%;
-  margin-left: -16vh;
-  margin-top: -14vh;
-}
+  .buttonzoom {
+    left: 50vw;
+    margin-left: -15vw;
+    top: 54vh;
+    width: 7vh;
+  }
 
-.optionview {
-  position: fixed; 
-  height: 12vw;
-  left: 50vw;
-  top: -50vh;
-  margin-top: -12vh;
-}
+  .homeoption {
+    top: 36vh;
+    left: 50vw;
+    height: 5vh;
+  }
 
-#optionview1 {
-  margin-left: -18.2vw;
-}
+    #home180 {
+      margin-left: -6.6vh;
+    }
 
-#optionview2 {
-  margin-left: -6vw;
-}
+    #homeopen {
+      margin-left: 0vh;
+    }
 
-#optionview3 {
-  margin-left: 6.5vw;
-}
+    .optionview {
+      height: 9vw;
+      left: 50vw;
+      top: -50vh;
+      margin-top: -12vh;
+    }
 
-.menuitem {
-  position: fixed; 
-  width: 35vw;
-  left: 50%;
-  margin-left: -50vh;
-}
+    #optionview1 {
+      margin-left: -17.2vw;
+      top: 66vh;
+    }
 
-#menu1 {
-  margin-left: -45vw;
-  top: 37vh;
-}
+    #optionview2 {
+      margin-left: -4.5vw;
+      top: 64vh;
+    }
 
-#menu2 {
-  margin-left: -47vw;
-  top: 47vh;
-}
+    #optionview3 {
+      margin-left: 8.1vw;
+      top: 66vh;
+    }
 
-#menu3 {
-  margin-left: 12vw;
-  top: 42vh;
-}
+    #goback {
+      width: 8vh;
+      margin-left: 10vw;
+      top: 37vh;
+    }
 
-#menu4 {
-  margin-left: -17.5vw;
-  top: 63vh;
-}
-
-
-
-
+    .menuitem {
+      width: 20vw;
+    }
+    
+    #menu1 {
+      margin-left: -29vw;
+      top: 40vh;
+    }
+    
+    #menu2 {
+      margin-left: -31vw;
+      top: 50vh;
+    }
+    
+    #menu3 {
+      margin-left: 12vw;
+      top: 42vh;
+    }
+    
+    #menu4 {
+      margin-left: -10vw;
+      top: 58vh;
+    }
+    
+    .option {
+      bottom: 36vh;
+    }
 }

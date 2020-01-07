@@ -33,6 +33,13 @@ window.onload = function(){
 		return;
 	} 
 	setTimeout(function(){ startVideo(); }, 150);
+	startItems();
+}
+
+function startItems(){
+	startItem(".buttonzoom"); startItem(".homeoption");
+	startItem(".optionview"); startItem(".option");
+	startItem(".menuitem"); startItem("#goback");
 }
 
 function setEvents(){
@@ -75,9 +82,8 @@ function setMenu1(){ setMenu(1);} function setMenu2(){ setMenu(2);} function set
 function startVideo(){
 	gsap.to('#backvideo', {duration:1, opacity: 1});
 	startHome();
-	gsap.to("#goback", {duration: 0, scale:0});
-	setCssTop("#goback", "10vh");
-	setCssTop("#logo", "110vh");
+	setGoBack(0)
+	hide("#logo");
 	setEvents();
 }
 
@@ -133,7 +139,6 @@ function zoomImageBag(){
 	setTimeout(function(){ window.onclick = closeZoomModal; }, 500);
 	document.getElementById("imagenzoom").src=newImageUrl;
 	document.getElementById("zoomModal").style.display = "block";
-	setCssTop("#zoomspan", "4vh");
 	$('#zoomspan').trigger('zoom.destroy');
 	$('#zoomspan').zoom({url: newImageUrl});
 }
@@ -146,10 +151,8 @@ function closeZoomModal(){
 function startHomeBase(){
 	activeScreen=SCREEN_HOME;
 	setGoBack(0);
-	setCssTop(".homeoption", "-20vh");
-	setCssTop("#optionview1", "-15vh"); setCssTop("#optionview2", "-15vh"); setCssTop("#optionview3", "-15vh");
-	setCssTop("#zoomfront", "130vh");
-	setCssTop("#zoomback", "130vh");
+	hide(".homeoption");
+	hide(".optionview");
 }
 
 function startHome(){
@@ -171,9 +174,9 @@ function backToHome(){
 }
 
 function onStopHomeAnimations(){
-	setCssTop(".homeoption", "5vh"); 
-	setCssTop("#zoomfront", "70vh");
-	setCssTop("#zoomback", "130vh");
+	show(".homeoption"); 
+	show("#zoomfront");
+	hide("#zoomback");
 }
 
 function onStopHome() {
@@ -192,7 +195,7 @@ function setGif(id, gif, gif2, fn){
 var b180 = false;
 function view180(){
 	if(!b180){
-		setCssTop("#optionview1", "-15vh"); setCssTop("#optionview2", "-15vh"); setCssTop("#optionview3", "-15vh");
+		hide(".optionview");
 		playVideoOn(TIME_180[0]);
 		addVideoEvent(on180);
 	}else{
@@ -200,17 +203,17 @@ function view180(){
 		addVideoEvent(to0);
 	}
 	b180=!b180;
-	setCssTop(".homeoption", "-20vh");
-	setCssTop("#zoomfront", "130vh");
-	setCssTop("#zoomback", "130vh");
+	hide(".homeoption");
+	hide("#zoomfront");
+	hide("#zoomback");
 }
 
 function to0(){
 	if(this.currentTime>TIME_180[3]){
 		pauseVideoOn(TIME_180[3]); removeVideoEvent(to0);
-		setCssTop("#homeopen", "5vh");
-		setCssTop("#zoomfront", "70vh");
-		setCssTop("#home180", "5vh");
+		show("#homeopen");
+		show("#zoomfront");
+		show("#home180");
 		setFreeze(false);
 	}
 }
@@ -222,8 +225,8 @@ function setGoBack(scaleValue){
 function on180(){
 	if(this.currentTime>TIME_180[1]){
 		pauseVideoOn(TIME_180[2]); removeVideoEvent(on180);
-		setCssTop("#zoomback", "70vh");
-		setCssTop("#home180", "5vh");
+		show("#zoomback");
+		show("#home180");
 		setFreeze(false);
 	}
 }
@@ -234,15 +237,13 @@ function openBag(){
 	playVideoOn(TIME_OPEN_BAG[0]); addVideoEvent(onBagButtons);
 }
 
-
-
 function baseopenBag(){
 	activeScreen=SCREEN_BAG;
-	setCssTop(".homeoption", "-20vh"); 
-	gsap.to(".menuitem", 0.2, {scaleX: 0, scaleY: 0, transformOrigin: "50% 50%"});
-	gsap.to(".option", {duration: 0.4, scale:0});
-	setCssTop("#zoomfront", "130vh");
-	setCssTop("#zoomback", "130vh");
+	hide(".homeoption"); 
+	hide(".menuitem");
+	hide(".option");
+	hide("#zoomfront");
+	hide("#zoomback");
 }
 
 function onBagButtons() {
@@ -252,7 +253,7 @@ function onBagButtons() {
 }	
 
 function onStopBagAnimations(){
-	setCssTop("#optionview1", "68vh"); setCssTop("#optionview2", "62vh"); setCssTop("#optionview3", "68vh");	
+	show(".optionview");
 }
 
 function onBagStop() {
@@ -270,7 +271,7 @@ function clickview1(){ openView(1);} function clickview2(){ openView(2);} functi
 
 function openView(option){
 	activeScreen=SCREEN_VIEW;
-	removeVideoEvent(onBagButtons); removeVideoEvent(onBagStop); setCssTop(".optionview", "-20vh");
+	removeVideoEvent(onBagButtons); removeVideoEvent(onBagStop); hide(".optionview");
 	
 	currentOption=option;
 	var stopTime=0;
@@ -290,9 +291,9 @@ function openView(option){
 			setFreeze(false);
 			removeVideoEvent(onOptionOpened); 
 			pauseVideoOn(stopTime);
-			gsap.to(".menuitem", {duration: 0.2, scale:1,"margin-top": "0vh"});
+			show(".menuitem");
 			setOption(option, 0.6);
-			gsap.to(".option", {duration: 0.2, scale:1});
+			show(".option");
 		}
 	}	
 }
@@ -325,14 +326,14 @@ function setOption(option, dur=0.5){
 }
 
 function hideOptions(){
-	gsap.to(".option", {duration: 0.4, scale:0});
-	gsap.to(".menuitem", 0.2, {scaleX: 0, scaleY: 0, transformOrigin: "50% 50%"});
+	hide(".option");
+	hide(".menuitem");
 	setGoBack(0);
 }
 
 function showeOptions(){
-	gsap.to(".menuitem", {duration: 0.2, scale:1});
-	gsap.to(".option", {duration: 0.4, scale:1});
+	show(".menuitem");
+	show(".option");
 	setFreeze(false);
 }
 
@@ -445,7 +446,6 @@ function viewLabel(){
 
 function closeLModal(){ hideLabel(); }
 
-
 function pauseVideoOn(value){
 	document.getElementById('backvideo').pause(); document.getElementById('backvideo').currentTime=value;
 }
@@ -457,10 +457,6 @@ function playVideoOn(value){
 		console.log("Value is not defined");
 		console.log(value);
 	}
-}
-
-function setCssTop(id, value){
-	gsap.to(id, {duration: 0.4, ease:Strong.easeOut, css:{top: value}});
 }
 
 var currentVideoFn;
@@ -478,3 +474,19 @@ function removeCurrentVideoEvent(){
 	document.getElementById('backvideo').removeEventListener("timeupdate", currentVideoFn);	
 }
 
+function scaleItem(id, value, dur){
+	gsap.to(id, dur, {scaleX: value, scaleY: value, transformOrigin: "50% 50%"});
+}
+
+function startItem(id){
+	scaleItem(id,0,0);
+	gsap.to(id, {duration:0, opacity: 1});
+}
+
+function show(id){
+	scaleItem(id,1,0.4);
+}
+
+function hide(id){
+	scaleItem(id,0,0.4);
+}
