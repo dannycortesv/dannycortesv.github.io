@@ -48,7 +48,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	setTimeout(function(){ startVideo(); }, 200);
+	setTimeout(function(){ startVideo(); }, 2000);
 	startItems();
 }
 
