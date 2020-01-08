@@ -168,10 +168,11 @@ body {
   color: #333333;
   font-size: 40px;
   font-weight: bold;
-  margin: -3.5vh 0% 0% 53vw;
+  margin: -1.8vh 0% 0% 53vw;
 }
+
 .closezoom {
-  margin: -13vh 0% 0% 53vw;
+  margin: -8vh 0% 0% 50.5vw;
 }
 
 .close:hover,
