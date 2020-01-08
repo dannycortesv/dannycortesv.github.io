@@ -7,10 +7,10 @@ body {
 
 #logo {
   position: fixed; 
-  width: 40vh;
+  width: 80vh;
   left: 50vw;
-  margin-left: -20vh;
-  top: 36vh;
+  margin-left: -42vh;
+  top: 30vh;
 }
 
 .homeoption {
