@@ -99,7 +99,7 @@ function startVideo(){
 	gsap.to('#backvideo', {duration:1, opacity: 1});
 	startHome();
 	setGoBack(0)
-	hide("#logo");
+	gsap.to('#logo', {duration:0.4, opacity: 0});
 	setEvents();
 }
 
@@ -191,6 +191,7 @@ function backToHome(){
 }
 
 function onStopHomeAnimations(){
+	hide("#logo");
 	show(".homeoption"); 
 	show("#zoomfront");
 	hide("#zoomback");
