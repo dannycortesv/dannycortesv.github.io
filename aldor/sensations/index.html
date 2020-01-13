@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="assets/style.css">
+		<script src='assets/resources/jquery.min.js'></script>
+		<script src='assets/resources/jquery.zoom.min.js'></script>
+		<script src="assets/resources/gsap.min.js"></script>
+		<script src="assets/actions.js"></script>
+		<title>ALDOR - SENSATIONS v1.3</title>
+	</head>
+	<body>
+		<video autoplay loop playsinline id="backvideo">
+				<source type="video/mp4" src="assets/media/sensations.mp4">
+		</video>
+		<img id="home180" class="homeoption button" src="buttons/180.gif"/>
+		<img id="homeopen" class="homeoption button" src="buttons/open.gif"/>
+		<img id="optionview1" class="optionview button" src="buttons/circulo.gif"/> 
+		<img id="optionview2" class="optionview button" src="buttons/circulo.gif"/> 
+		<img id="optionview3" class="optionview button" src="buttons/circulo.gif"/> 
+		<img id="option1" class="option button" src="buttons/p1.gif"/>
+		<img id="option2" class="option button" src="buttons/p2.gif"/>
+		<img id="option3" class="option button" src="buttons/p3.gif"/>
+		<img id="zoomfront" class="buttonzoom button" src="buttons/zoom.gif"/>
+		<img id="zoomback" class="buttonzoom button" src="buttons/zoom.gif"/>
+		<img id="goback" class="goback button" src="buttons/back.gif"/>
+		<div class="menu">
+			<img class="menuitem button" id="menu1" src="buttons/unwrap.gif"/> 
+			<img class="menuitem button" id="menu2" src="buttons/discover.gif"/> 
+			<img class="menuitem button" id="menu3" src="buttons/sen.gif"/> 
+			<img class="menuitem button" id="menu4" src="buttons/view-label.gif"/> 
+		</div>
+		<img id="logo" src="assets/media/loading.gif"/>
+		<img id="start" src="assets/media/start.png"/>
+		<div id="labelModal" class="modal modallabel">
+			<div class="modal-content" id="modalcontent">
+			  <span class="close closelabel">&times;</span>
+			  <div id="label">
+				<img id="labelimage" src="" />
+			  </div>
+			</div>
+		</div>
+		<div id="zoomModal" class="modal modalzoom">
+			<div class="modal-contentzoom" id="modalcontentzoom">
+			  <span class='zoom' id="zoomspan">
+				<img class="imagenzoom" id="imagenzoom" />
+				</span>
+				<span class="close closezoom">&times;</span>
+			</div>
+		</div>
+	</body>
+</html>
