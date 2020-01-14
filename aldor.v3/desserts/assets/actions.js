@@ -25,11 +25,11 @@ const ON_UNWWRAP_3=85.4;
 
 const ON_UNWWRAP_2_1=29.5;
 const ON_UNWWRAP_2_2=59;
-const ON_UNWWRAP_2_3=89;
+const ON_UNWWRAP_2_3=88.7;
 
 const ON_UNWWRAP_3_1=42.6;
 const ON_UNWWRAP_3_2=72.2;
-const ON_UNWWRAP_3_3=101.7;
+const ON_UNWWRAP_3_3=101.8;
 
 const UNWRAP_1=[ON_UNWWRAP_1, ON_UNWWRAP_2_1, ON_UNWWRAP_3_1, 45, ON_SELECT_1];
 const UNWRAP_2=[ON_UNWWRAP_2, ON_UNWWRAP_2_2, ON_UNWWRAP_3_2, 74.4, ON_SELECT_2];
@@ -111,6 +111,7 @@ function startVideo(){
 }
 
 function startVideoOn(){
+	document.documentElement.requestFullscreen();
 	setFreeze(true);
 	gsap.to('#backvideo', {duration:1, opacity: 1});
 	hide("#start");
