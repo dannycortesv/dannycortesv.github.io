@@ -111,7 +111,10 @@ function startVideo(){
 }
 
 function startVideoOn(){
-	document.documentElement.requestFullscreen();
+	var android = navigator.userAgent.indexOf("android") > -1;
+	if(android){
+		document.documentElement.requestFullscreen();
+	}
 	setFreeze(true);
 	gsap.to('#backvideo', {duration:1, opacity: 1});
 	hide("#start");
