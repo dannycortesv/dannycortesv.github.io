@@ -118,13 +118,17 @@ function startVideoOn(){
 	setGoBack(0)
 }
 
+function setActiveScreen(value){
+	activeScreen=value;
+}
+
 function goBackAction(){
 	switch(activeScreen){
 		case SCREEN_BAG:
 			playVideoOn(TIME_BACK_HOME[0]);  addVideoEvent(onStopBackHome);
 			setFreeze(true);
 			startHomeBase();
-		startHomeBase();
+		break;
 		default:
 			backOpenBag();
 			setGoBack(0);
@@ -190,7 +194,7 @@ function closeZoomModal(){
 }
 
 function startHomeBase(){
-	activeScreen=SCREEN_HOME;
+	setActiveScreen(SCREEN_HOME);
 	setGoBack(0);
 	hide(".homeoption");
 	hide(".optionview");
@@ -276,11 +280,12 @@ function openBag(){
 	removeVideoEvent(on180);
 	baseopenBag();
 	playVideoOn(TIME_OPEN_BAG[0]); addVideoEvent(onBagButtons);
+	setActiveScreen(SCREEN_BAG);
 }
 
 function baseopenBag(){
 	changeColor("#ffffff",2, 1000);
-	activeScreen=SCREEN_BAG;
+	setActiveScreen(SCREEN_BAG);
 	hide(".homeoption"); 
 	hide(".menuitem");
 	hide(".option");
@@ -312,7 +317,7 @@ var currentOption=0;
 function clickview1(){ openView(1);} function clickview2(){ openView(2);} function clickview3(){ openView(3);}
 
 function openView(option){
-	activeScreen=SCREEN_VIEW;
+	setActiveScreen(SCREEN_VIEW);
 	removeVideoEvent(onBagButtons); removeVideoEvent(onBagStop); hide(".optionview");
 	
 	currentOption=option;
