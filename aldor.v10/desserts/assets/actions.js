@@ -89,16 +89,13 @@ function setEvents(){
 	document.getElementById("start").addEventListener("click", function(){startVideoOn();});
 
 	window.addEventListener("resize", function() {
-		console.log('resize');
-		var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
-		if(iOS){
+		if(android){
 			if(window.innerHeight > window.innerWidth){
-				gsap.to('.option', {duration:0, "bottom":"21.6vh"});
+				gsap.to('.option', {duration:0, "bottom":"33.8vh"});
 			}else{
 				gsap.to('.option', {duration:0, "bottom":"0vh"});
 			}
 		}
-	
 	}, false);
 }
 

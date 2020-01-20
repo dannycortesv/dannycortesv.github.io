@@ -90,7 +90,6 @@ function setEvents(){
 	document.getElementById("start").addEventListener("click", function(){startVideoOn();});
 
 	window.addEventListener("resize", function() {
-		console.log('resize');
 		var android = navigator.userAgent.indexOf("android") > -1;
 		if(android){
 			if(window.innerHeight > window.innerWidth){
