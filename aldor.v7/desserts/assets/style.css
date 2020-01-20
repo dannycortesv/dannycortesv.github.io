@@ -280,8 +280,8 @@ body {
 
     #goback {
       width: 7vh;
-      margin-left: 6vw;
-      top: 37vh;
+      margin-left: 4.5vw;
+      top: 34vh;
     }
 
     .menuitem {
@@ -290,17 +290,17 @@ body {
     
     #menu1 {
       margin-left: -45vw;
-      top: 39vh;
+      top: 42vh;
     }
     
     #menu2 {
       margin-left: 12vw;
-      top: 39vh;
+      top: 37vh;
     }
     
     #menu4 {
       margin-left: -18vw;
-      top: 53vh;
+      top: 54vh;
     }
     
     .option {

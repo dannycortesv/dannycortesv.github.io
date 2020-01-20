@@ -23,13 +23,13 @@ const ON_UNWWRAP_1=23.5;
 const ON_UNWWRAP_2=53;
 const ON_UNWWRAP_3=82;
 
-const ON_UNWWRAP_2_1=26.5;
+const ON_UNWWRAP_2_1=26.4;
 const ON_UNWWRAP_2_2=55.5;
-const ON_UNWWRAP_2_3=84.5;
+const ON_UNWWRAP_2_3=84.28;
 
-const ON_UNWWRAP_3_1=39.6;
+const ON_UNWWRAP_3_1=39.9;
 const ON_UNWWRAP_3_2=68.4;
-const ON_UNWWRAP_3_3=97;
+const ON_UNWWRAP_3_3=97.38;
 
 const UNWRAP_1=[ON_UNWWRAP_1, ON_UNWWRAP_2_1, ON_UNWWRAP_3_1, 42, ON_SELECT_1];
 const UNWRAP_2=[ON_UNWWRAP_2, ON_UNWWRAP_2_2, ON_UNWWRAP_3_2, 71, ON_SELECT_2];
@@ -53,7 +53,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	setTimeout(function(){ startVideo(); }, 3000);
+	setTimeout(function(){ startVideo(); }, 2000);
 	startItems();
 }
 
@@ -394,6 +394,11 @@ function setViewOptionGo(){
 
 var optinDur;
 function setOption(option, dur=0.5){
+	var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
+	if(iOS){
+		gsap.to('.option', {duration:0, "bottom":"21.6vh"});
+	}
+	
 	optinDur=dur;
 	switch(option){
 		case 1:

@@ -23,9 +23,9 @@ const ON_UNWWRAP_1=22;
 const ON_UNWWRAP_2=69.5;
 const ON_UNWWRAP_3=113.5;
 
-const ON_UNWWRAP_2_1=25;
-const ON_UNWWRAP_2_2=72.6;
-const ON_UNWWRAP_2_3=116.5;
+const ON_UNWWRAP_2_1=24.9;
+const ON_UNWWRAP_2_2=72.2;
+const ON_UNWWRAP_2_3=116.25;
 
 const ON_UNWWRAP_3_1=57.05;
 const ON_UNWWRAP_3_2=101;
@@ -39,7 +39,7 @@ const DISCOVER_1=[ON_UNWWRAP_1, 39,  ON_UNWWRAP_3_1, 59.5, ON_SELECT_1];
 const DISCOVER_2=[ON_UNWWRAP_2, 88.5, ON_UNWWRAP_3_2, 104.1, ON_SELECT_2];
 const DISCOVER_3=[ON_UNWWRAP_3, 130.3, ON_UNWWRAP_3_3, 155.5, ON_SELECT_3];
 
-const SENSATION_1=[ON_UNWWRAP_1, ON_UNWWRAP_2_1, 41.7, 59.5, ON_SELECT_1];
+const SENSATION_1=[ON_UNWWRAP_1, ON_UNWWRAP_2_1, 41, 59.5, ON_SELECT_1];
 const SENSATION_2=[ON_UNWWRAP_2, ON_UNWWRAP_2_2, 91, 104.1, ON_SELECT_2];
 const SENSATION_3=[ON_UNWWRAP_3, ON_UNWWRAP_2_3, 132.5, 155.5, ON_SELECT_3];
 
@@ -53,7 +53,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	setTimeout(function(){ startVideo(); }, 3000);
+	setTimeout(function(){ startVideo(); }, 2000);
 	startItems();
 }
 
@@ -403,6 +403,11 @@ function setViewOptionGo(){
 
 var optinDur;
 function setOption(option, dur=0.5){
+	var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
+	if(iOS){
+		gsap.to('.option', {duration:0, "bottom":"21.6vh"});
+	}
+	
 	optinDur=dur;
 	switch(option){
 		case 1:
@@ -513,11 +518,11 @@ function setBig(option, id, dur){
 		break;
 		case 2:
 				gsap.to(id, {duration:dur, opacity: 1});
-				gsap.to(id, {duration: dur, ease:Strong.easeOut, css:{width:"9%", margin: "0% 0% 0% 70%"}});
+				gsap.to(id, {duration: dur, ease:Strong.easeOut, css:{width:"8%", margin: "0% 0% 0% 70%"}});
 		break;
 		case 3:
 				gsap.to(id, {duration:dur, opacity: 1});
-				gsap.to(id, {duration: dur, ease:Strong.easeOut, css:{width:"9%", margin: "0% 0% 0% 80%"}});
+				gsap.to(id, {duration: dur, ease:Strong.easeOut, css:{width:"8%", margin: "0% 0% 0% 80%"}});
 		break;
 	}
 }
