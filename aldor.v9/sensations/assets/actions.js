@@ -41,7 +41,7 @@ const DISCOVER_3=[ON_UNWWRAP_3, 130.3, ON_UNWWRAP_3_3, 155.5, ON_SELECT_3];
 
 const SENSATION_1=[ON_UNWWRAP_1, ON_UNWWRAP_2_1, 41, 59.5, ON_SELECT_1];
 const SENSATION_2=[ON_UNWWRAP_2, ON_UNWWRAP_2_2, 91, 104.1, ON_SELECT_2];
-const SENSATION_3=[ON_UNWWRAP_3, ON_UNWWRAP_2_3, 132.5, 155.5, ON_SELECT_3];
+const SENSATION_3=[ON_UNWWRAP_3, 116.17, 132.5, 155.5, ON_SELECT_3];
 
 const SCREEN_HOME="SCREEN_HOME";
 const SCREEN_BAG="SCREEN_BAG";
@@ -91,10 +91,10 @@ function setEvents(){
 
 	window.addEventListener("resize", function() {
 		console.log('resize');
-		var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
-		if(iOS){
+		var android = navigator.userAgent.indexOf("android") > -1;
+		if(android){
 			if(window.innerHeight > window.innerWidth){
-				gsap.to('.option', {duration:0, "bottom":"21.6vh"});
+				gsap.to('.option', {duration:0, "bottom":"33.8vh"});
 			}else{
 				gsap.to('.option', {duration:0, "bottom":"0vh"});
 			}
