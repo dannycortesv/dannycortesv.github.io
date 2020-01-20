@@ -71,9 +71,15 @@ function setEvents(){
 	document.getElementById("zoomfront").addEventListener("click", function(){setGif("zoomfront", "zoom", "zoom_O", zoomFrontFn);});
 	document.getElementById("zoomback").addEventListener("click", function(){setGif("zoomback", "zoom", "zoom_O", zoomBackFn);});
 	document.getElementById("goback").addEventListener("click", function(){setGif("goback", "back", "back_O", goBackAction);});
+
 	document.getElementById("optionview1").addEventListener("click", function(){setGif("optionview1", "circulo", "circulo_O", clickview3);});
 	document.getElementById("optionview2").addEventListener("click", function(){setGif("optionview2", "circulo", "circulo_O", clickview1);});
 	document.getElementById("optionview3").addEventListener("click", function(){setGif("optionview3", "circulo", "circulo_O", clickview2);});
+	
+	document.getElementById("optionview4").addEventListener("click", function(){setGif("optionview1", "circulo", "circulo_O", clickview3);});
+	document.getElementById("optionview5").addEventListener("click", function(){setGif("optionview2", "circulo", "circulo_O", clickview1);});
+	document.getElementById("optionview6").addEventListener("click", function(){setGif("optionview3", "circulo", "circulo_O", clickview2);});
+	
 	document.getElementById("option1").addEventListener("click", function(){setViewOption(1);});
 	document.getElementById("option2").addEventListener("click", function(){setViewOption(2);});
 	document.getElementById("option3").addEventListener("click", function(){setViewOption(3);});

@@ -65,6 +65,24 @@ body {
   top: 68vh;
 }
 
+#optionview4 {
+  margin-left: -38vh;
+  top: 20vh;
+  height: 50vh;
+}
+
+#optionview5 {
+  margin-left: -13vh;
+  top: 14vh;
+  height: 50vh;
+}
+
+#optionview6 {
+  margin-left: 12vh;
+  top: 20vh;
+  height: 50vh;
+}
+
 .option {
   position: fixed; 
   bottom: 0px;
