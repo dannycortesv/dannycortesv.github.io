@@ -53,7 +53,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	setTimeout(function(){ startVideo(); }, 2000);
+	setTimeout(function(){ startVideo(); }, 3000);
 	startItems();
 }
 
