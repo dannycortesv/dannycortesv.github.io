@@ -334,5 +334,23 @@ body {
     #labelimage {
       width: 80vw;
     }
+
+    #optionview4 {
+      margin-left: -11vh;
+      top: 54vh;
+      height: 15vh;
+    }
+
+    #optionview5 {
+      margin-left: -3.4vh;
+      top: 52vh;
+      height: 15vh;
+    }
+
+    #optionview6 {
+      margin-left: 4vh;
+      top: 54vh;
+      height: 15vh;
+    }
       
 }
