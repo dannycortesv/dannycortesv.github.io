@@ -15,7 +15,7 @@ const ON_RETURN_1=42.2;
 const ON_RETURN_2=71.1;
 const ON_RETURN_3=99.7;
 
-const GO_BAG_1=[ON_RETURN_1, 44.4]; //47.4
+const GO_BAG_1=[ON_RETURN_1, 44.4];
 const GO_BAG_2=[ON_RETURN_2, 73.6];
 const GO_BAG_3=[ON_RETURN_3, 102.5];
 
@@ -28,7 +28,7 @@ const ON_UNWWRAP_2_2=55.5;
 const ON_UNWWRAP_2_3=84.28;
 
 const ON_UNWWRAP_3_1=39.9;
-const ON_UNWWRAP_3_2=68.4;
+const ON_UNWWRAP_3_2=68.5;
 const ON_UNWWRAP_3_3=97.38;
 
 const UNWRAP_1=[ON_UNWWRAP_1, ON_UNWWRAP_2_1, ON_UNWWRAP_3_1, 42, ON_SELECT_1];
@@ -53,7 +53,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	setTimeout(function(){ startVideo(); }, 2000);
+	setTimeout(function(){ startVideo(); }, 2);
 	startItems();
 }
 
@@ -87,6 +87,19 @@ function setEvents(){
 	document.getElementById("menu2").addEventListener("click", function(){setGif("menu2", "discover", "discover_O", setMenu2);});
 	document.getElementById("menu4").addEventListener("click", function(){setGif("menu4", "view-label", "view-label_O", setMenu4);});
 	document.getElementById("start").addEventListener("click", function(){startVideoOn();});
+
+	window.addEventListener("resize", function() {
+		console.log('resize');
+		var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
+		if(iOS){
+			if(window.innerHeight > window.innerWidth){
+				gsap.to('.option', {duration:0, "bottom":"21.6vh"});
+			}else{
+				gsap.to('.option', {duration:0, "bottom":"0vh"});
+			}
+		}
+	
+	}, false);
 }
 
 let freezeClic = false;
@@ -394,11 +407,6 @@ function setViewOptionGo(){
 
 var optinDur;
 function setOption(option, dur=0.5){
-	var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
-	if(iOS){
-		gsap.to('.option', {duration:0, "bottom":"21.6vh"});
-	}
-	
 	optinDur=dur;
 	switch(option){
 		case 1:

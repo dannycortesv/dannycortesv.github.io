@@ -88,6 +88,19 @@ function setEvents(){
 	document.getElementById("menu3").addEventListener("click", function(){setGif("menu3", "sen", "sen_O", setMenu3);});
 	document.getElementById("menu4").addEventListener("click", function(){setGif("menu4", "view-label", "view-label_O", setMenu4);});
 	document.getElementById("start").addEventListener("click", function(){startVideoOn();});
+
+	window.addEventListener("resize", function() {
+		console.log('resize');
+		var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
+		if(iOS){
+			if(window.innerHeight > window.innerWidth){
+				gsap.to('.option', {duration:0, "bottom":"21.6vh"});
+			}else{
+				gsap.to('.option', {duration:0, "bottom":"0vh"});
+			}
+		}
+	
+	}, false);
 }
 
 let freezeClic = false;
@@ -403,11 +416,6 @@ function setViewOptionGo(){
 
 var optinDur;
 function setOption(option, dur=0.5){
-	var iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; 
-	if(iOS){
-		gsap.to('.option', {duration:0, "bottom":"21.6vh"});
-	}
-	
 	optinDur=dur;
 	switch(option){
 		case 1:
