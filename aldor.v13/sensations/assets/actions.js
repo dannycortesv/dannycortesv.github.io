@@ -37,6 +37,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
+	setImage("start");
 	setTimeout(function(){ startVideo(); }, 2000);
 	startItems();
 }
@@ -688,6 +689,9 @@ function setImage(id){
 		break;
 		case "menu4":
 			loadImage(id, "buttons/view-label.gif")
+		break;
+		case "start":
+			loadImage(id, "assets/media/start.gif")
 		break;
 	}
 }

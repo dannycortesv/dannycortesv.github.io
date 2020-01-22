@@ -37,6 +37,7 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
+	setImage("start");
 	setTimeout(function(){ startVideo(); }, 2000);
 	startItems();
 }
@@ -104,6 +105,7 @@ function setMenu1(){ setMenu(1);} function setMenu2(){ setMenu(2);} function set
 
 
 function startVideo(){
+	loadStart();
 	setEvents();
 	gsap.to('#logo', {duration:0.4, opacity: 0});
 	setTimeout(() => {  
@@ -199,6 +201,7 @@ function closeZoomModal(){
 }
 
 function startHomeBase(){
+	loadHome();
 	setActiveScreen(SCREEN_HOME);
 	setGoBack(0);
 	hide(".homeoption");
@@ -399,6 +402,7 @@ function setViewOptionGo(){
 
 var optinDur;
 function setOption(option, dur=0.5){
+	loadOption();
 	optinDur=dur;
 	switch(option){
 		case 1:
@@ -564,4 +568,99 @@ function show(id){
 
 function hide(id){
 	scaleItem(id,0,0.4);
+}
+
+
+var startLoaded=false;
+function loadStart(){
+	if(!startLoaded){
+		setImage("home180");
+		setImage("homeopen");
+		setImage("zoomfront");
+		setImage("zoomback");
+	}
+	startLoaded=true;
+}
+
+var homeLoaded=false;
+function loadHome(){
+	if(!homeLoaded){
+		setImage("optionview1");
+		setImage("optionview2");
+		setImage("optionview3");
+		setImage("optionview4");
+		setImage("optionview5");
+		setImage("optionview6");
+		setImage("goback");
+	}
+	homeLoaded=true;
+}
+
+var optionLoaded=false;
+function loadOption(){
+	if(!optionLoaded){
+		setImage("option1");
+		setImage("option2");
+		setImage("option3");
+		setImage("menu1");
+		setImage("menu2");
+		setImage("menu4");
+	}
+	optionLoaded=true;
+}
+
+function setImage(id){
+	switch(id){
+		case "home180":
+			loadImage(id, "buttons/180.gif")
+		break;
+		case "homeopen":
+			loadImage(id, "buttons/open.gif")
+		break;
+		case "optionview1":
+		case "optionview2":
+		case "optionview3":
+			loadImage(id, "buttons/circulo.gif")
+		break;
+		case "optionview4":
+		case "optionview5":
+		case "optionview6":
+			loadImage(id, "buttons/circle.png")
+		break;
+		case "option1":
+			loadImage(id, "buttons/p1.gif")
+		break;
+		case "option2":
+			loadImage(id, "buttons/p2.gif")
+		break;
+		case "option3":
+			loadImage(id, "buttons/p3.gif")
+		break;
+		case "zoomfront":
+		case "zoomback":
+			loadImage(id, "buttons/zoom.gif")
+		break;
+		case "goback":
+			loadImage(id, "buttons/back.gif")
+		break;
+		case "menu1":
+			loadImage(id, "buttons/unwrap.gif")
+		break;
+		case "menu2":
+			loadImage(id, "buttons/discover.gif")
+		break;
+		case "menu3":
+			loadImage(id, "buttons/sen.gif")
+		break;
+		case "menu4":
+			loadImage(id, "buttons/view-label.gif")
+		break;
+		case "start":
+			loadImage(id, "assets/media/start.gif")
+		break;
+	}
+}
+
+function loadImage(id, image){
+	document.getElementById(id).src=image;
 }
