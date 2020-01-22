@@ -37,12 +37,16 @@ window.onload = function(){
 		window.location="";
 		return;
 	} 
-	preloadVideo();
+	
 	setImage("start");
+	setTimeout(function(){ initVideo(); }, 1000);
+}
+
+function initVideo(){
+	preloadVideo();
 	setTimeout(function(){ startVideo(); }, 2000);
 	startItems();
 }
-
 
 function preloadVideo(){
 	var video = document.getElementById('backvideo');
