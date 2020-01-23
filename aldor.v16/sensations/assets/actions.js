@@ -631,6 +631,8 @@ function loadStart(){
 		setImage("homeopen");
 		setImage("zoomfront");
 		setImage("zoomback");
+		loadImage("imagenzoom", "assets/media/frente.png")
+		loadImage("imagenzoom", "assets/media/atras.png")
 	}
 	startLoaded=true;
 }
