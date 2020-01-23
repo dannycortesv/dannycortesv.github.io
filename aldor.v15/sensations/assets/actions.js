@@ -191,26 +191,31 @@ function onStopGoBag() {
 var newImageUrl;
 function zoomBackFn(){
 	newImageUrl = 'assets/media/atras.png';
-	zoomImageBag();
+	zoomToImage();
 }
 
 function zoomFrontFn(){
 	newImageUrl = 'assets/media/frente.png';
-	zoomImageBag();
+	zoomToImage();
 }
 
-function zoomImageBag(){
+function zoomToImage(){
 	setFreeze(false);
-	setTimeout(function(){ window.onclick = closeZoomModal; }, 500);
 	document.getElementById("imagenzoom").src=newImageUrl;
 	document.getElementById("zoomModal").style.display = "block";
-	$('#zoomspan').trigger('zoom.destroy');
-	$('#zoomspan').zoom({url: newImageUrl});
+	//$('#zoomspan').trigger('zoom.destroy');
+	$('#zoomspan').zoom({url: newImageUrl}); 	
+	setTimeout(
+		function(){ 
+			console.log('DoZoom');
+			window.onclick = closeZoomModal; 
+			$('#zoomspan').zoom();
+		}, 1000);
 }
 
 function closeZoomModal(){
-	document.getElementById("zoomModal").style.display = "none";
 	window.onclick=null;
+	document.getElementById("zoomModal").style.display = "none";
 }
 
 function startHomeBase(){
@@ -538,7 +543,6 @@ function setBig(option, id, dur){
 
 function hideLabel(){
 	gsap.to("#modalcontent", {duration: 0.3,  ease:Strong.easeIn, scale:0, onComplete:closeLabelModal});
-	window.onclick=null;
 }
 
 function closeLabelModal(){
@@ -547,7 +551,7 @@ function closeLabelModal(){
 
 function viewLabel(){
 	document.getElementById("labelModal").style.display = "block";
-	setTimeout(function(){ window.onclick = closeLModal; }, 500);
+	setTimeout(function(){ window.onclick = closeLModal; }, 1000);
 
 	var imageSRC="";
 	switch(currentOption){
@@ -564,7 +568,7 @@ function viewLabel(){
 	setFreeze(false);
 }
 
-function closeLModal(){ hideLabel(); }
+function closeLModal(){ window.onclick = null; hideLabel(); }
 
 function pauseVideo(){
 	document.getElementById('backvideo').pause(); 
