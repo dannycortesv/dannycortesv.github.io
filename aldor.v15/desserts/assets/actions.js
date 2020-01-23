@@ -206,7 +206,6 @@ function zoomImageBag(){
 	setTimeout(function(){ window.onclick = closeZoomModal; }, 500);
 	document.getElementById("imagenzoom").src=newImageUrl;
 	document.getElementById("zoomModal").style.display = "block";
-	$('#zoomspan').trigger('zoom.destroy');
 	$('#zoomspan').zoom({url: newImageUrl});
 }
 
@@ -265,6 +264,7 @@ function setGif(id, gif, gif2, fn){
 
 var b180 = false;
 function view180(){
+	$('#zoomspan').trigger('zoom.destroy');
 	if(!b180){
 		hide(".optionview");
 		playVideoOn(TIME_180[0]);

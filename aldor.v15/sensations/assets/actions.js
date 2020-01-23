@@ -281,6 +281,7 @@ function setGif(id, gif, gif2, fn){
 
 var b180 = false;
 function view180(){
+	$('#zoomspan').trigger('zoom.destroy');
 	if(!b180){
 		hide(".optionview");
 		playVideoOn(TIME_180[0]);
