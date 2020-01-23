@@ -585,7 +585,8 @@ function hide(id){
 	scaleItem(id,0,0.4);
 }
 
-
+var imagefront = new Image();
+var imaageBack = new Image();
 var startLoaded=false;
 function loadStart(){
 	if(!startLoaded){
@@ -593,8 +594,8 @@ function loadStart(){
 		setImage("homeopen");
 		setImage("zoomfront");
 		setImage("zoomback");
-		loadImage("imagenzoom", "assets/media/frente.png")
-		loadImage("imagenzoom", "assets/media/atras.png")
+		imagefront.src="assets/media/frente.png";
+		imaageBack.src="assets/media/atras.png";
 	}
 	startLoaded=true;
 }
