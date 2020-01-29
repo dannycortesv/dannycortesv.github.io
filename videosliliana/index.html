@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .center {
+                text-align: center;
+                }
+        </style>
+        </head>
+        <script>
+        
+            function onStart() {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const product = urlParams.get('product')
+                console.log(product);
+                preloadVideo(product);    
+            }
+            
+            window.onload=onStart;
+
+            function preloadVideo(value){
+                var video = document.getElementById('backvideo');
+                var source = document.createElement('source');
+                source.setAttribute('src', value+'.mp4');
+                video.appendChild(source);
+                video.pause();
+            }
+
+        </script>
+<body>
+<div class="center">
+    <video id="backvideo" style="height: 98vh;" oncontextmenu="return false;"  controls controlsList="nodownload">
+    <source type="video/mp4">
+     Tu explorador no soporta el tag de video
+    </video>
+</div>
+
+</body>
+</html>
