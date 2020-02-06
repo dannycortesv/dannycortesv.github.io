@@ -21,7 +21,7 @@
         <button class="navbar-toggler hidden-md-up collapsed" data-toggle="collapse" data-target="#am-navbar-collapse"><span class="icon s7-angle-down"></span></button>
         <div class="collapse navbar-collapse" id="am-navbar-collapse">
           <ul class="nav navbar-nav am-user-nav">
-            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="assets/img/avatar.jpg"><span class="user-name">Samantha Amaretti</span><span class="angle-down s7-angle-down"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="assets/img/avatar.jpg"><span class="user-name">Sandra Arango</span><span class="angle-down s7-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#"> <span class="icon s7-user"></span>Mi Perfil</a></li>
                 <li><a href="#"> <span class="icon s7-config"></span>Configuración</a></li>
@@ -59,7 +59,86 @@
         </ol>
       </div>
       <div class="main-content">
-        <h3 class="text-center">Contenido</h3>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="widget widget-fullwidth widget-small">
+              <div class="widget-head">
+                <div class="title">Lista de Usuarios</div>
+              </div>
+              <table class="table table-striped table-fw-widget table-hover">
+                <thead>
+                  <tr>
+                    <th width="32%">Usuario</th>
+                    <th width="45%">Correo</th>
+                    <th>Cargo</th>
+                  </tr>
+                </thead>
+                <tbody class="no-border-x">
+                  <tr>
+                    <td class="user-avatar"> <img src="assets/img/avatar4.jpg">Carlos Sassu</td>
+                    <td>carlosassu@gmail.com</td>
+                    <td>Jefe de Ventas</td>
+                  </tr>
+                  <tr>
+                    <td class="user-avatar"> <img src="assets/img/avatar3.jpg">Martha Parra</td>
+                    <td>marthap@gmail.com</td>
+                    <td>Director de Bodega</td>
+                  </tr>
+                  <tr>
+                    <td class="user-avatar"> <img src="assets/img/avatar7.jpg">Alfonso Martinez</td>
+                    <td>alfonsoma@gmail.com</td>
+                    <td>Comercial Principal</td>
+                  </tr>
+                  <tr>
+                    <td class="user-avatar"> <img src="assets/img/avatar6.jpg">Mike Betancurt</td>
+                    <td>mbetancurt@gmail.com</td>
+                    <td>Almacenista</td>
+                  </tr>
+                  <tr>
+                    <td class="user-avatar"> <img src="assets/img/avatar4.jpg">Carlos Sassu</td>
+                    <td>carlosassu@gmail.com</td>
+                    <td>Jefe de Ventas</td>
+                  </tr>
+                  <tr>
+                    <td class="user-avatar"> <img src="assets/img/avatar3.jpg">Martha Parra</td>
+                    <td>marthap@gmail.com</td>
+                    <td>Director de Bodega</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h3>Crear Usuario Nuevo</h3>
+              </div>
+              <div class="card-body">
+                <form role="form">
+                  <div class="form-group">
+                    <label>Nombre</label>
+                    <input class="form-control" type="name" placeholder="Escribir nombre">
+                  </div>
+                  <div class="form-group">
+                    <label>Correo</label>
+                    <input class="form-control" type="email" placeholder="Escribir correo">
+                  </div>
+                  <div class="form-group">
+                    <label>Cargo</label>
+                    <input class="form-control" type="email" placeholder="Escribir cargo">
+                  </div>
+                  <div class="form-group">
+                    <label>Clave</label>
+                    <input class="form-control" type="password" placeholder="Clave">
+                  </div>
+                  <div class="text-inverse">
+                    <button class="btn btn-space btn-primary btn-rounded btn-lg" type="submit"><i class="icon icon-left s7-save"></i> Crear Usuario</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
