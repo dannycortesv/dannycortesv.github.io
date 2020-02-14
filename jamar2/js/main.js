@@ -73,7 +73,7 @@
 			var self = this;
 			if ($.fn.queryLoader2) {
 				$("body").queryLoader2({
-					barColor: "#f8d61b",
+					barColor: "#d62631",
 					backgroundColor: "#fff",
 					percentage: true,
 					barHeight: 5,
