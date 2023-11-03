@@ -1,0 +1,189 @@
+<div class="portfolio-content">
+    <div class="cbp-l-project-title">DANNY CORTES</div>
+    <div class="cbp-l-project-subtitle">MOBILE DEVELOPER</div>
+    <img src="contents/images/logo@2x.png" class="center-block img-rounded" alt="John Doe" width="180" />
+    <!--Container-->
+    <div class="cbp-l-project-container">
+        <!--Description-->
+        <div class="cbp-l-project-desc">
+            <div class="cbp-l-project-desc-title">
+                <span>HIGHLY EXPERIENCED AWARD WINNING MOBILE DEVELOPER</span>
+            </div>
+            <div class="cbp-l-project-desc-text">Award winning innovative and logical thinking Mobile Developer with vast knowledge of leveraging technology, designing, coding and deploying sophisticated techniques; achievement-oriented, able to overcome issues, capture requirements and implement methodologies that maximize performance and deliver outstanding, engaging products. 
+
+            I am Multimedia Engineer graduated at the "Nueva Granada" University in 2012, with 9 years of experience in software development.
+            I like to research, innovate and create products that generate positive changes in our society. I like cycling, traveling and learn new things.
+            Also I do project management, and count with developers and designers, if you need a large project within a short time, you can count on me for its development.
+        </div>
+        </div>
+        <!--/Description-->
+        <!--Project Details-->
+        <div class="cbp-l-project-details">
+            <div class="cbp-l-project-details-title">
+                <span>I AM</span>
+            </div>
+            <!--List-->
+            <ul class="cbp-l-project-details-list">
+                <li><strong>Name</strong>Danny Cortes</li>
+                <li><strong>Date of birth</strong>February 14, 1988</li>
+                <li><strong>Address</strong>Av. Ambalá # 104 - 106 Ibague, Colombia</li>
+                <li><strong>Email</strong>dannycortesv@gmail.com</li>
+                <li><strong>Phone</strong>(57) 3142160428</li>
+                <li><strong>Skype</strong>dannycortesv</li>
+            </ul>
+            <!--/List-->
+        </div>
+        <!--/Project Details-->
+    </div>
+    <!--/Container-->
+    <!--Container 2-->
+    <div class="cbp-l-project-container">
+            <div class="cbp-l-project-desc-title">
+                <span>FUNCTIONAL SKILL RANGE • CORE COMPETENCIES • AREAS OF EXPERTISE</span>
+            </div>
+            <!--Skills-->
+            <div class="cbp-l-project-desc-text">
+                <!--Skills 1-->
+                <span>PROJECT MANAGEMENT</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+                </div>
+                <span>FLUTTER</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+                </div>
+                <!--/Skills 1-->
+                <!--Skills 2-->
+                 <span>DART</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                </div>
+                <!--/Skills 2-->
+                <!--Skills 3-->
+                 <span>FIREBASE</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+                </div>
+                <!--/Skills 3-->
+                <br />
+                <!--Skills 4 -->
+                <span>FLARE</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+                </div>
+                <!--/Skills 4-->
+                <!--Skills 5-->
+                 <span>JAVASCRIPT</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+                </div>
+                <!--/Skills 5-->
+                <!--Skills 6-->
+                <span>STARLING / FEATHERS</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+                </div>
+                <!--/Skills 6-->
+                <br />
+                <!--Skills 7-->
+                 <span>REACT NATIVE</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+                </div>
+                <!--/Skills 7-->
+                <!--Skills 8-->
+                <span>CREATIVE</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%"> </div>
+                </div>
+                <!--/Skills 8-->
+                <!--Skills 9-->
+                 <span>PHOTOSHOP</span>
+                <div class="progress pror-bor-gey">
+                  <div class="progress-bar progress-bar-black" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%"> </div>
+                </div>
+                <!--/Skills 9-->
+            </div>
+            <!--/Skills-->
+    </div>
+    <!--/Container 2-->
+
+    <div class="cbp-l-project-container">
+        <div class="cbp-l-project-desc-title">
+            <span>EDUCATION • QUALIFICATIONS • COURSES • TRAINING</span>
+        </div>
+        <ul class="cbp-l-project-details-list">
+                 <li><strong>Music, Classical Piano, 2005 to  2007 - </strong> “Juan N. Corpas” University. Bogota, Colombia  </li>
+                 <li><strong>Multimedia Engineer, 2007 to 2012 - </strong> “Nueva Granada UMNG” University. Bogota, Colombia  </li>
+                 <li><strong>Innovation Management, 2015 - </strong> "European Innovation Academy". Nice, France</li>
+            </ul>
+        <!--/Text-->
+    </div>
+
+    <!--Container 3-->
+    <div class="cbp-l-project-container">
+        <div class="cbp-l-project-desc-title">
+            <span>PROFESSIONAL EMPLOYMENT EXPERIENCE AND CAREER HISTORY</span>
+        </div>
+        <div class="cbp-l-project-desc-text">Both professional and personal references are available on request.</div>
+        <ul class="cbp-l-project-details-list">
+                <li><strong> Cibercol Ltda (2008)</strong>  <u>Backend Developer / MySQL & PHP</u> : PHP Development • PostgresSQL • PHP • Developed comprehensive knowledge of backend standards and practices</li>
+
+                <li><strong> Standaju S.A.S. (2009-2010)</strong> <u>Mobile Flash Lite Developer / AS3 Development</u> : AS3 and Flash Lite Development - Integrating apps with the Facebook SDK for Web and Desktop</li>
+
+                <li><strong> Colombia en Linea (2011)</strong> <u>AS3 Developer / Flash Professional</u>: Working in an Agile and dynamic environment, taking technical ownership of features and quickly identifying any technical problems with the design or any improvements that could be implemented.</li>
+                
+                <li><strong> Hi Media Digital (2012)</strong> <u>Mobile Adobe Air Developer</u> Develop mobile apps (for iOS) on AS3 using the classical display list</li>
+
+                <li><strong> Siete Interactivo (2013)</strong> <u>AS3 Freelance Developer</u> : Kinect Development • AS3 • Flash Builder • Developed client-side games for social networks. Integrating apps with the Facebook SDK for Web and Desktop</li>
+                
+                <li><strong> Imaginamos S.A.S (2014)</strong> <u>Mobile Adobe Air Freelance Developer (AS3, Starling)</u> : Oversaw game development on AS3 and adobe air for mobile (iOS and Android). Preparing and reviewing game assets for numerous production stages using Adobe Air. Extremely detail-oriented, analysing cases, testing and juggling projects to deadlines.</li>
+
+                <li><strong> Bytelf S.A.S. (2013 to present)</strong> <u>Mobile Developer / Project Manager</u> : Created and implemented process maps and workflow to oversee concept through to production and delivery. Liasing closely with the engineering and design teams to resolve issues and create outstanding products. Integrating apps with the Facebook SDK for Web and Desktop.</li>
+
+                <li><strong> Tetheree Inc. (2011 to present)</strong> <u>Mobile & NUI Developer</u> : Kinect & Leap Motion development using native extensions on Adobe Air. Game prototype development using Adobe Air (AS3), Starling, Feathers UI. Collaborating with teams to capture requirements, define work scopes plan development tasks. Playing a pivotal role in all phases of the software development and testing cycle.</li>
+            </ul>
+        <!--/Text-->
+    </div>
+    <!--/Container 3-->
+
+    <!--Container 4-->
+    <div class="cbp-l-project-container">
+        <!--Title-->
+        <div class="cbp-l-project-desc-title">
+            <span>PERSONAL AIMS • CHARACTER VALUE • GOALS • FUTURE POTENTIAL</span>
+        </div>
+        <!--/Title-->
+        <!--Text-->
+        <div class="cbp-l-project-desc-text">
+            Range of abilities that can bring to any new role:
+        </div>
+        <ul class="cbp-l-project-details-list">
+                <li>Optimising technology methodologies, outlining scopes, gathering intelligence and capturing requirements</li>
+                <li>Acting as the conduit for mobile development knowledge and recommending options and software</li>
+                <li>Establishing objectives, workflow, the development life cycle and shaping solutions across technologies</li>
+                <li>Adhering to standards and guidelines, testing progress using staged interventions and mechanisms</li>
+                <li>Documenting progress and resolving technical queries with a keen eye for design and user experience</li>
+            </ul>
+        <!--/Text-->
+    </div>
+    <!--/Container 4-->
+
+     <!--Container 5-->
+    <div class="cbp-l-project-container">
+        <div class="cbp-l-project-desc-title">
+            <span>WORK EXCELLENCIES • CAPABILITIES • KEY ACHIEVEMENTS</span>
+        </div>
+        <ul class="cbp-l-project-details-list">
+                <li>Won “Best iOS App of 2013 in Colombia” in Dec 2013 - organised by The App Date</li>
+                <li>Won “Best Social Mobile App of 2012 in Colombia” in Dec 2012 - organised by The App Date</li>
+                <li>1 of my apps classified at “Best 10 Latin America Apps” in Jun 2012 - again organised by AppCircus</li>
+                <li>2 of my apps classified at “Best 10 Colombian Apps” in Nov 2011 - organised by AppCircus</li>
+                <li>Awarded 4th place at Reto Flash Lite in Jan 2011 - organised by Adobe User Group Colombia & HiMedia Digital</li>
+                <li>Developing fun, scalable multiplatform games, from design review, prototype to production</li>
+            </ul>
+        <!--/Text-->
+    </div>
+    <!--/Container 5-->
+    <br><br><br> 
+</div>
